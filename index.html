@@ -4,53 +4,112 @@
   <meta charset="UTF-8">
   <title>Te amo Franchesca</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Tipografía linda -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Música -->
-  <audio autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
-  </audio>
+<!-- ANIMACIONES -->
+<div class="lluvia"></div>
 
-  <!-- Inicio -->
-  <section class="hero">
-    <div class="corazon">❤️</div>
-    <h1>Te amo Franchesca</h1>
-  </section>
+<!-- MÚSICA -->
+<audio autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Razones -->
-  <section class="razones">
-    <h2>Razones por las que te amo</h2>
-    <ul>
-      <li>Tu sonrisa me hace feliz</li>
-      <li>Me hacés sentir especial</li>
-      <li>Siempre estás para mí</li>
-      <li>Sos hermosa por dentro y por fuera</li>
-      <li>Me encanta pasar tiempo con vos</li>
-    </ul>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>❤️ Te amo Franchesca ❤️</h1>
+</section>
 
-  <!-- Fotos -->
-  <section class="fotos">
-    <h2>Nosotros 💕</h2>
-    <div class="galeria">
-      <img src="foto1.jpg">
-      <img src="foto2.jpg">
-      <img src="foto3.jpg">
-    </div>
-  </section>
+<!-- RAZONES -->
+<section class="razones">
+  <h2>25 razones por las que te amo</h2>
+  <ul>
+    <li>Tu sonrisa</li>
+    <li>Tu mirada</li>
+    <li>Cómo me hacés sentir</li>
+    <li>Tu forma de hablar</li>
+    <li>Tu risa</li>
+    <li>Tu cariño</li>
+    <li>Tu forma de ser</li>
+    <li>Tu personalidad</li>
+    <li>Cómo me entendés</li>
+    <li>Cómo me cuidás</li>
+    <li>Tu ternura</li>
+    <li>Tu locura hermosa</li>
+    <li>Tu voz</li>
+    <li>Tu compañía</li>
+    <li>Tu apoyo</li>
+    <li>Tu energía</li>
+    <li>Tu forma de mirarme</li>
+    <li>Tu paciencia</li>
+    <li>Tu belleza</li>
+    <li>Tu dulzura</li>
+    <li>Cómo me hacés reír</li>
+    <li>Cómo sos conmigo</li>
+    <li>Todo lo que vivimos</li>
+    <li>Todo lo que sos</li>
+    <li>Porque sos vos 💖</li>
+  </ul>
+</section>
 
-  <!-- Sorpresa -->
-  <section class="sorpresa">
-    <h2>💌</h2>
-    <button onclick="mostrarMensaje()">Tocá acá</button>
-    <p id="mensaje"></p>
-  </section>
+<!-- FOTOS -->
+<section class="fotos">
+  <h2>Nosotros 💕</h2>
+  <div class="galeria">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+    <img src="foto5.jpg">
+    <img src="foto6.jpg">
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="videos">
+  <h2>Momentos 🎥</h2>
+  <div class="galeria">
+    <video controls src="video1.mp4"></video>
+    <video controls src="video2.mp4"></video>
+    <video controls src="video3.mp4"></video>
+  </div>
+</section>
+
+<!-- RETO -->
+<section class="sorpresa">
+  <h2>🎯 Reto</h2>
+  <p>Si sabés mi fecha de cumpleaños… desbloqueás algo 💖</p>
+
+  <input type="text" id="fecha" placeholder="dd/mm">
+  <button onclick="verificar()">Intentar</button>
+
+  <p id="resultado"></p>
+</section>
 
 <script>
-function mostrarMensaje() {
-  document.getElementById("mensaje").innerText = "¿Querés ser mi novia? 💖";
+function verificar() {
+  let input = document.getElementById("fecha").value;
+  if (input === "16/07" || input === "16-07") {
+    document.getElementById("resultado").innerText = "💖 ¿Querés ser mi novia? 💖";
+  } else {
+    document.getElementById("resultado").innerText = "😜 Intentá de nuevo";
+  }
 }
+
+// corazones random
+setInterval(() => {
+  let corazon = document.createElement("div");
+  corazon.className = "corazon";
+  corazon.innerText = ["❤️","💖","💘","💝","🏹"][Math.floor(Math.random()*5)];
+  corazon.style.left = Math.random()*100 + "vw";
+  corazon.style.fontSize = (20 + Math.random()*30) + "px";
+  document.body.appendChild(corazon);
+
+  setTimeout(() => corazon.remove(), 5000);
+}, 300);
 </script>
 
 </body>

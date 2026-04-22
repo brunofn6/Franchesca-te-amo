@@ -5,7 +5,6 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -15,28 +14,35 @@ body {
 }
 
 .hero h1 {
-  font-size: 50px;
+  font-size: 55px;
   color: #e11d48;
+  text-align: center;
 }
 
-/* RAZONES */
 .razones {
-  padding: 50px;
+  padding: 60px;
   text-align: center;
   background: #fff0f5;
 }
 
-.razones li {
-  font-weight: bold;
-  margin: 8px;
+.razones h2 {
+  font-size: 40px;
+  color: #e11d48;
 }
 
-/* GALERIA */
+.razones li {
+  font-size: 28px;
+  font-weight: bold;
+  color: #be123c;
+  margin: 15px 0;
+}
+
 .galeria {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 40px;
 }
 
 img, video {
@@ -44,19 +50,19 @@ img, video {
   border-radius: 15px;
 }
 
-/* SORPRESA */
 .sorpresa {
   text-align: center;
-  padding: 50px;
+  padding: 60px;
+  background: #ffe4ec;
 }
 
-input {
+input, button {
   padding: 10px;
   font-size: 16px;
+  margin: 5px;
 }
 
 button {
-  padding: 10px 20px;
   background: #e11d48;
   color: white;
   border: none;
@@ -66,12 +72,29 @@ button {
 /* CORAZONES */
 .corazon {
   position: fixed;
-  top: -10px;
-  animation: caer 5s linear;
+  pointer-events: none;
+  z-index: 9999;
+  animation: caer 6s linear;
 }
 
+/* CAÍDA */
 @keyframes caer {
-  to {
-    transform: translateY(110vh);
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(110vh); }
+}
+
+/* EXPLOSIÓN */
+.explosion {
+  animation: explotar 1s ease-out forwards;
+}
+
+@keyframes explotar {
+  0% {
+    transform: translate(0,0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1.5);
+    opacity: 0;
   }
 }

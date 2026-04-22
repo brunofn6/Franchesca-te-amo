@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe4ec, #ffc0cb);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.corazon {
+  font-size: 100px;
+  animation: latido 1s infinite;
+}
+
+.hero h1 {
+  font-size: 50px;
+  color: #e11d48;
+}
+
+/* ANIMACIÓN */
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* RAZONES */
+.razones {
+  padding: 50px;
+  text-align: center;
+  background-color: #fff0f5;
+}
+
+.razones h2 {
+  color: #e11d48;
+}
+
+.razones li {
+  margin: 10px;
+}
+
+/* FOTOS */
+.fotos {
+  padding: 50px;
+  text-align: center;
+}
+
+.galeria {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.galeria img {
+  width: 250px;
+  border-radius: 15px;
+}
+
+/* SORPRESA */
+.sorpresa {
+  padding: 60px;
+  text-align: center;
+  background: #ffe4ec;
+}
+
+.sorpresa button {
+  padding: 15px 25px;
+  font-size: 18px;
+  background-color: #e11d48;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#mensaje {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #e11d48;
+}

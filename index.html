@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te amo Franchesca</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Música -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Inicio -->
+  <section class="hero">
+    <div class="corazon">❤️</div>
+    <h1>Te amo Franchesca</h1>
+  </section>
+
+  <!-- Razones -->
+  <section class="razones">
+    <h2>Razones por las que te amo</h2>
+    <ul>
+      <li>Tu sonrisa me hace feliz</li>
+      <li>Me hacés sentir especial</li>
+      <li>Siempre estás para mí</li>
+      <li>Sos hermosa por dentro y por fuera</li>
+      <li>Me encanta pasar tiempo con vos</li>
+    </ul>
+  </section>
+
+  <!-- Fotos -->
+  <section class="fotos">
+    <h2>Nosotros 💕</h2>
+    <div class="galeria">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+    </div>
+  </section>
+
+  <!-- Sorpresa -->
+  <section class="sorpresa">
+    <h2>💌</h2>
+    <button onclick="mostrarMensaje()">Tocá acá</button>
+    <p id="mensaje"></p>
+  </section>
+
+<script>
+function mostrarMensaje() {
+  document.getElementById("mensaje").innerText = "¿Querés ser mi novia? 💖";
+}
+</script>
+
+</body>
+</html>

@@ -3,59 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Te amo Franchesca</title>
-  <link rel="stylesheet" href="styles.css">
 
-  <!-- Tipografía linda -->
+  <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ANIMACIONES -->
-<div class="lluvia"></div>
-
-<!-- MÚSICA -->
 <audio autoplay loop>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HERO -->
 <section class="hero">
   <h1>❤️ Te amo Franchesca ❤️</h1>
 </section>
 
-<!-- RAZONES -->
 <section class="razones">
-  <h2>25 razones por las que te amo</h2>
+  <h2>25 razones por las que te amo 💖</h2>
   <ul>
-    <li>Tu sonrisa</li>
-    <li>Tu mirada</li>
-    <li>Cómo me hacés sentir</li>
-    <li>Tu forma de hablar</li>
-    <li>Tu risa</li>
-    <li>Tu cariño</li>
-    <li>Tu forma de ser</li>
-    <li>Tu personalidad</li>
-    <li>Cómo me entendés</li>
-    <li>Cómo me cuidás</li>
-    <li>Tu ternura</li>
-    <li>Tu locura hermosa</li>
-    <li>Tu voz</li>
-    <li>Tu compañía</li>
-    <li>Tu apoyo</li>
-    <li>Tu energía</li>
-    <li>Tu forma de mirarme</li>
-    <li>Tu paciencia</li>
-    <li>Tu belleza</li>
-    <li>Tu dulzura</li>
-    <li>Cómo me hacés reír</li>
-    <li>Cómo sos conmigo</li>
-    <li>Todo lo que vivimos</li>
-    <li>Todo lo que sos</li>
-    <li>Porque sos vos 💖</li>
+    <li>Tu sonrisa 😍</li>
+    <li>Tu mirada 💕</li>
+    <li>Cómo me hacés sentir 💘</li>
+    <li>Tu forma de hablar 💞</li>
+    <li>Tu risa 😂💖</li>
+    <li>Tu cariño 🥰</li>
+    <li>Tu forma de ser 💓</li>
+    <li>Tu personalidad 💗</li>
+    <li>Cómo me entendés 💕</li>
+    <li>Cómo me cuidás 💘</li>
+    <li>Tu ternura 🥺💖</li>
+    <li>Tu locura hermosa 😜💞</li>
+    <li>Tu voz 🎶💗</li>
+    <li>Tu compañía 💓</li>
+    <li>Tu apoyo 💕</li>
+    <li>Tu energía ⚡💘</li>
+    <li>Tu forma de mirarme 😍</li>
+    <li>Tu paciencia 💖</li>
+    <li>Tu belleza 💕</li>
+    <li>Tu dulzura 🍭💘</li>
+    <li>Cómo me hacés reír 😂</li>
+    <li>Cómo sos conmigo 💓</li>
+    <li>Todo lo que vivimos 💞</li>
+    <li>Todo lo que sos 💖</li>
+    <li>Porque sos vos ❤️</li>
   </ul>
 </section>
 
-<!-- FOTOS -->
 <section class="fotos">
   <h2>Nosotros 💕</h2>
   <div class="galeria">
@@ -68,7 +62,6 @@
   </div>
 </section>
 
-<!-- VIDEOS -->
 <section class="videos">
   <h2>Momentos 🎥</h2>
   <div class="galeria">
@@ -78,7 +71,6 @@
   </div>
 </section>
 
-<!-- RETO -->
 <section class="sorpresa">
   <h2>🎯 Reto</h2>
   <p>Si sabés mi fecha de cumpleaños… desbloqueás algo 💖</p>
@@ -92,24 +84,57 @@
 <script>
 function verificar() {
   let input = document.getElementById("fecha").value;
+
   if (input === "16/07" || input === "16-07") {
     document.getElementById("resultado").innerText = "💖 ¿Querés ser mi novia? 💖";
+    explosionCorazones();
   } else {
     document.getElementById("resultado").innerText = "😜 Intentá de nuevo";
   }
 }
 
-// corazones random
+// LLUVIA CONSTANTE
 setInterval(() => {
+  crearCorazon("caida");
+}, 150);
+
+// FUNCIÓN CREAR CORAZÓN
+function crearCorazon(tipo) {
   let corazon = document.createElement("div");
   corazon.className = "corazon";
-  corazon.innerText = ["❤️","💖","💘","💝","🏹"][Math.floor(Math.random()*5)];
-  corazon.style.left = Math.random()*100 + "vw";
-  corazon.style.fontSize = (20 + Math.random()*30) + "px";
+
+  let emojis = ["❤️","💖","💘","💝","💕","💞","💓","🏹","😍"];
+  corazon.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+  if (tipo === "explosion") {
+    corazon.style.left = "50vw";
+    corazon.style.top = "50vh";
+
+    let x = (Math.random() - 0.5) * 600;
+    let y = (Math.random() - 0.5) * 600;
+
+    corazon.style.setProperty('--x', x + "px");
+    corazon.style.setProperty('--y', y + "px");
+
+    corazon.classList.add("explosion");
+  } else {
+    corazon.style.left = Math.random()*100 + "vw";
+    corazon.style.top = "-10px";
+  }
+
+  corazon.style.fontSize = (20 + Math.random()*40) + "px";
+
   document.body.appendChild(corazon);
 
-  setTimeout(() => corazon.remove(), 5000);
-}, 300);
+  setTimeout(() => corazon.remove(), 4000);
+}
+
+// EXPLOSIÓN
+function explosionCorazones() {
+  for (let i = 0; i < 60; i++) {
+    crearCorazon("explosion");
+  }
+}
 </script>
 
 </body>

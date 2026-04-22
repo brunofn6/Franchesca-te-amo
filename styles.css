@@ -1,22 +1,17 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: white;
+  font-family: 'Pacifico', cursive;
+  background: white;
+  overflow-x: hidden;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #ffe4ec, #ffc0cb);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.corazon {
-  font-size: 100px;
-  animation: latido 1s infinite;
+  background: linear-gradient(135deg, #ffe4ec, #ffc0cb);
 }
 
 .hero h1 {
@@ -24,34 +19,19 @@ body {
   color: #e11d48;
 }
 
-/* ANIMACIÓN */
-@keyframes latido {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
 /* RAZONES */
 .razones {
   padding: 50px;
   text-align: center;
-  background-color: #fff0f5;
-}
-
-.razones h2 {
-  color: #e11d48;
+  background: #fff0f5;
 }
 
 .razones li {
-  margin: 10px;
+  font-weight: bold;
+  margin: 8px;
 }
 
-/* FOTOS */
-.fotos {
-  padding: 50px;
-  text-align: center;
-}
-
+/* GALERIA */
 .galeria {
   display: flex;
   gap: 20px;
@@ -59,30 +39,39 @@ body {
   flex-wrap: wrap;
 }
 
-.galeria img {
+img, video {
   width: 250px;
   border-radius: 15px;
 }
 
 /* SORPRESA */
 .sorpresa {
-  padding: 60px;
   text-align: center;
-  background: #ffe4ec;
+  padding: 50px;
 }
 
-.sorpresa button {
-  padding: 15px 25px;
-  font-size: 18px;
-  background-color: #e11d48;
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #e11d48;
   color: white;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
 }
 
-#mensaje {
-  margin-top: 20px;
-  font-size: 24px;
-  color: #e11d48;
+/* CORAZONES */
+.corazon {
+  position: fixed;
+  top: -10px;
+  animation: caer 5s linear;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(110vh);
+  }
 }

@@ -211,6 +211,10 @@ c.style.top=e.clientY+"px";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
+ 
+  // 🔒 ASEGURAR QUE ARRANQUE OCULTO SIEMPRE
+document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("propuesta").classList.add("oculto");
 });
 </script>
 

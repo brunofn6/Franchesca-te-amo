@@ -8,24 +8,63 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* AJUSTES SIN BORRAR TU CSS */
+/* FORZAR CENTRADO Y TAMAÑOS */
 body{
-text-align:center;
+  text-align:center !important;
 }
 
-.centrado{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+section{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
 }
 
-.grande{
-font-size:1.5em;
+/* TEXTOS GRANDES */
+h1{
+  font-size:80px !important;
 }
 
-.extra-grande{
-font-size:2em;
+h2{
+  font-size:55px !important;
+}
+
+p{
+  font-size:35px !important;
+}
+
+li{
+  font-size:32px !important;
+  font-weight:bold !important;
+}
+
+/* INPUT Y BOTONES */
+input{
+  font-size:24px !important;
+  padding:12px !important;
+  text-align:center !important;
+}
+
+button{
+  font-size:24px !important;
+  padding:12px 20px !important;
+}
+
+/* PROPUESTA CENTRADA */
+#propuesta{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:20px !important;
+}
+
+/* GALERIA CENTRADA */
+.galeria{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:center !important;
+  gap:20px !important;
 }
 </style>
 
@@ -33,7 +72,6 @@ font-size:2em;
 
 <body>
 
-<!-- BOTÓN MÚSICA -->
 <button class="musica-btn" onclick="activarMusica()">
 🎵 Tocar música 💖
 </button>
@@ -42,52 +80,48 @@ font-size:2em;
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HERO -->
-<section class="hero centrado">
-<h1 class="extra-grande">❤️ Te amo Franchesca ❤️</h1>
+<section class="hero">
+<h1>❤️ Te amo Franchesca ❤️</h1>
 </section>
 
-<!-- CONTADOR -->
-<section class="contador centrado">
-<h2 class="extra-grande">⏳ Desde que hablamos...</h2>
-<p id="tiempo" class="grande"></p>
+<section class="contador">
+<h2>⏳ Desde que hablamos...</h2>
+<p id="tiempo"></p>
 </section>
 
-<!-- RAZONES -->
-<section class="razones centrado">
-<h2 class="extra-grande">25 razones por las que te amo 💖</h2>
+<section class="razones">
+<h2>25 razones por las que te amo 💖</h2>
 <ul>
-<li class="grande">Tu sonrisa 😍</li>
-<li class="grande">Tu mirada 💕</li>
-<li class="grande">Cómo me hacés sentir 💘</li>
-<li class="grande">Tu risa 😂</li>
-<li class="grande">Tu ternura 🥺</li>
-<li class="grande">Tu forma de ser 💖</li>
-<li class="grande">Tu personalidad 💞</li>
-<li class="grande">Tu voz 🎶</li>
-<li class="grande">Tu cariño 🥰</li>
-<li class="grande">Tu paciencia 💗</li>
-<li class="grande">Tu dulzura 💘</li>
-<li class="grande">Tu energía ⚡</li>
-<li class="grande">Tu apoyo 💓</li>
-<li class="grande">Tu compañía 💕</li>
-<li class="grande">Cómo me mirás 😍</li>
-<li class="grande">Cómo me cuidás 💖</li>
-<li class="grande">Cómo sos conmigo 💘</li>
-<li class="grande">Todo lo que vivimos 💞</li>
-<li class="grande">Tu locura 😜</li>
-<li class="grande">Tu belleza 💗</li>
-<li class="grande">Tu forma de amar 💓</li>
-<li class="grande">Cómo me hacés reír 😂</li>
-<li class="grande">Todo lo que sos 💕</li>
-<li class="grande">Todo lo que seremos 💘</li>
-<li class="grande">Porque sos vos ❤️</li>
+<li>Tu sonrisa 😍</li>
+<li>Tu mirada 💕</li>
+<li>Cómo me hacés sentir 💘</li>
+<li>Tu risa 😂</li>
+<li>Tu ternura 🥺</li>
+<li>Tu forma de ser 💖</li>
+<li>Tu personalidad 💞</li>
+<li>Tu voz 🎶</li>
+<li>Tu cariño 🥰</li>
+<li>Tu paciencia 💗</li>
+<li>Tu dulzura 💘</li>
+<li>Tu energía ⚡</li>
+<li>Tu apoyo 💓</li>
+<li>Tu compañía 💕</li>
+<li>Cómo me mirás 😍</li>
+<li>Cómo me cuidás 💖</li>
+<li>Cómo sos conmigo 💘</li>
+<li>Todo lo que vivimos 💞</li>
+<li>Tu locura 😜</li>
+<li>Tu belleza 💗</li>
+<li>Tu forma de amar 💓</li>
+<li>Cómo me hacés reír 😂</li>
+<li>Todo lo que sos 💕</li>
+<li>Todo lo que seremos 💘</li>
+<li>Porque sos vos ❤️</li>
 </ul>
 </section>
 
-<!-- FOTOS -->
-<section class="fotos centrado">
-<h2 class="extra-grande">Nosotros 💕</h2>
+<section class="fotos">
+<h2>Nosotros 💕</h2>
 <div class="galeria">
 <img src="foto1.jpg">
 <img src="foto2.jpg">
@@ -111,9 +145,8 @@ font-size:2em;
 </div>
 </section>
 
-<!-- VIDEOS -->
-<section class="videos centrado">
-<h2 class="extra-grande">Momentos 🎥</h2>
+<section class="videos">
+<h2>Momentos 🎥</h2>
 <div class="galeria">
 <video controls src="video1.mp4"></video>
 <video controls src="video2.mp4"></video>
@@ -121,23 +154,21 @@ font-size:2em;
 </div>
 </section>
 
-<!-- CARTA -->
-<section class="carta centrado">
+<section class="carta">
 <button onclick="abrirCarta()">💌 Abrí esto</button>
-<p id="mensajeCarta" class="grande"></p>
+<p id="mensajeCarta"></p>
 </section>
 
-<!-- RETO -->
-<section class="sorpresa centrado">
-<h2 class="extra-grande">🎯 Reto</h2>
+<section class="sorpresa">
+<h2>🎯 Reto</h2>
 
 <input type="text" id="fecha" placeholder="dd/mm">
 <button onclick="verificar()">Intentar</button>
 
-<p id="resultado" class="grande"></p>
+<p id="resultado"></p>
 
-<div id="propuesta" class="oculto centrado">
-<h2 class="extra-grande">💖 ¿Querés ser mi novia? 💖</h2>
+<div id="propuesta" class="oculto">
+<h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
 <button id="noBtn">NO 😜</button>
 </div>
@@ -190,11 +221,11 @@ noBtn.style.top=Math.random()*80+"%";
 
 // FINAL
 function aceptar(){
-document.body.innerHTML="<h1 style='font-size:70px;text-align:center'>💖 YA SOS MI NOVIA 💖</h1>";
+document.body.innerHTML="<h1 style='font-size:80px;text-align:center'>💖 YA SOS MI NOVIA 💖</h1>";
 }
 
 // CORAZONES
-setInterval(()=>crear("normal"),150);
+setInterval(()=>crear("normal"),200);
 
 function crear(tipo){
 let c=document.createElement("div");
@@ -227,13 +258,12 @@ document.body.classList.add("shake");
 setTimeout(()=>document.body.classList.remove("shake"),500);
 }
 
-// MOUSE CORAZONES (MENOS CANTIDAD)
-let ultimo = 0;
+// MENOS CORAZONES EN EL MOUSE
+let ultimo=0;
 document.addEventListener("mousemove",(e)=>{
-let ahora = Date.now();
-
-if(ahora - ultimo > 120){
-ultimo = ahora;
+let ahora=Date.now();
+if(ahora-ultimo>150){
+ultimo=ahora;
 
 let c=document.createElement("div");
 c.className="corazon";

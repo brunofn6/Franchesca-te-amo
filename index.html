@@ -6,74 +6,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
-<style>
-/* FORZAR CENTRADO Y TAMAÑOS */
-body{
-  text-align:center !important;
-}
-
-section{
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:center !important;
-  justify-content:center !important;
-  width:100% !important;
-}
-
-/* TEXTOS GRANDES */
-h1{
-  font-size:80px !important;
-}
-
-h2{
-  font-size:55px !important;
-}
-
-p{
-  font-size:35px !important;
-}
-
-li{
-  font-size:32px !important;
-  font-weight:bold !important;
-}
-
-/* INPUT Y BOTONES */
-input{
-  font-size:24px !important;
-  padding:12px !important;
-  text-align:center !important;
-}
-
-button{
-  font-size:24px !important;
-  padding:12px 20px !important;
-}
-
-/* PROPUESTA CENTRADA */
-#propuesta{
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:center !important;
-  gap:20px !important;
-}
-
-/* GALERIA CENTRADA */
-.galeria{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  justify-content:center !important;
-  gap:20px !important;
-}
-</style>
-
 </head>
 
 <body>
 
 <button class="musica-btn" onclick="activarMusica()">
-🎵 Tocar música 💖
+🎵 Música 💖
 </button>
 
 <audio id="musica" loop>
@@ -90,7 +28,7 @@ button{
 </section>
 
 <section class="razones">
-<h2>25 razones por las que te amo 💖</h2>
+<h2>25 razones 💖</h2>
 <ul>
 <li>Tu sonrisa 😍</li>
 <li>Tu mirada 💕</li>
@@ -118,6 +56,12 @@ button{
 <li>Todo lo que seremos 💘</li>
 <li>Porque sos vos ❤️</li>
 </ul>
+</section>
+
+<!-- 🔥 NUEVA SECCIÓN AGREGADA -->
+<section class="amor-eterno">
+<h2>💖 Quiero que seas vos para siempre 💖</h2>
+<p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
 </section>
 
 <section class="fotos">
@@ -161,12 +105,14 @@ button{
 
 <section class="sorpresa">
 <h2>🎯 Reto</h2>
+<p>¿Qué día empezamos a hablar? 💘</p>
 
 <input type="text" id="fecha" placeholder="dd/mm">
 <button onclick="verificar()">Intentar</button>
 
 <p id="resultado"></p>
 
+<!-- 🔒 YA ESTÁ OCULTO HASTA ACERTAR -->
 <div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
@@ -192,26 +138,20 @@ document.getElementById("tiempo").innerText=
 `${d} días, ${h} horas, ${m} minutos 💕`;
 },1000);
 
-// CARTA
-function abrirCarta(){
-document.getElementById("mensajeCarta").innerText=
-"Sos lo mejor que me pasó 💖";
-}
-
-// RETO
+// 🔥 RETO ARREGLADO (06/04)
 function verificar(){
-let f=document.getElementById("fecha").value;
-if(f==="16/07"){
-document.getElementById("resultado").innerText="CORRECTO 💘";
+let f=document.getElementById("fecha").value.trim();
+
+if(f==="06/04" || f==="6/4"){
+document.getElementById("resultado").innerText="💖 Correcto 💖";
 document.getElementById("propuesta").classList.remove("oculto");
 explosion();
-vibrar();
 }else{
-document.getElementById("resultado").innerText="Intentá de nuevo 😜";
+document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// BOTON NO
+// BOTON NO ESCAPA
 let noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
 noBtn.style.position="absolute";
@@ -219,9 +159,11 @@ noBtn.style.left=Math.random()*80+"%";
 noBtn.style.top=Math.random()*80+"%";
 });
 
-// FINAL
+// 🔥 NO BORRA LA PAGINA (ARREGLADO)
 function aceptar(){
-document.body.innerHTML="<h1 style='font-size:80px;text-align:center'>💖 YA SOS MI NOVIA 💖</h1>";
+document.getElementById("propuesta").innerHTML =
+"<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";
+explosion();
 }
 
 // CORAZONES
@@ -252,16 +194,11 @@ function explosion(){
 for(let i=0;i<80;i++) crear("explosion");
 }
 
-// VIBRAR
-function vibrar(){
-document.body.classList.add("shake");
-setTimeout(()=>document.body.classList.remove("shake"),500);
-}
-
-// MENOS CORAZONES EN EL MOUSE
+// 🖱️ MENOS CORAZONES (ARREGLADO)
 let ultimo=0;
 document.addEventListener("mousemove",(e)=>{
 let ahora=Date.now();
+
 if(ahora-ultimo>150){
 ultimo=ahora;
 

@@ -10,7 +10,9 @@
 
 <body>
 
-<button class="musica-btn" onclick="activarMusica()">🎵 Música 💖</button>
+<button class="musica-btn" onclick="activarMusica()">
+🎵 Música 💖
+</button>
 
 <audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
@@ -56,6 +58,7 @@
 </ul>
 </section>
 
+<!-- MENSAJE ESPECIAL -->
 <section class="amor-eterno">
 <h2>💖 Quiero que seas vos para siempre 💖</h2>
 <p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
@@ -95,11 +98,7 @@
 </div>
 </section>
 
-<section class="carta">
-<button onclick="abrirCarta()">💌 Abrí esto</button>
-<p id="mensajeCarta"></p>
-</section>
-
+<!-- RETO -->
 <section class="sorpresa">
 <h2>🎯 Reto</h2>
 <p>¿Qué día empezamos a hablar? 💘</p>
@@ -109,6 +108,7 @@
 
 <p id="resultado"></p>
 
+<!-- OCULTO -->
 <div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
@@ -134,9 +134,9 @@ document.getElementById("tiempo").innerText=
 `${d} días, ${h} horas, ${m} minutos 💕`;
 },1000);
 
-// RETO
+// RETO CORREGIDO
 function verificar(){
-let f=document.getElementById("fecha").value.trim();
+let f=document.getElementById("fecha").value;
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
@@ -147,7 +147,7 @@ document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// BOTON NO
+// BOTON NO ESCAPA
 let noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
 noBtn.style.position="absolute";
@@ -155,10 +155,10 @@ noBtn.style.left=Math.random()*80+"%";
 noBtn.style.top=Math.random()*80+"%";
 });
 
-// ACEPTAR
+// ACEPTAR (NO BORRA LA PAGINA)
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
-"<h1>💖 YA SOS MI NOVIA 💖</h1>";
+"<h1 style='font-size:60px'>💖 YA SOS MI NOVIA 💖</h1>";
 explosion();
 }
 
@@ -168,7 +168,7 @@ setInterval(()=>crear("normal"),200);
 function crear(tipo){
 let c=document.createElement("div");
 c.className="corazon";
-c.innerText=["❤️","💖","💘","💕","💞","💓"][Math.floor(Math.random()*6)];
+c.innerText=["❤️","💖","💘","💕","💞","💓","🏹"][Math.floor(Math.random()*7)];
 
 if(tipo==="explosion"){
 c.style.left="50vw";
@@ -189,25 +189,6 @@ setTimeout(()=>c.remove(),4000);
 function explosion(){
 for(let i=0;i<80;i++) crear("explosion");
 }
-
-// MENOS CORAZONES MOUSE
-let ultimo=0;
-document.addEventListener("mousemove",(e)=>{
-let ahora=Date.now();
-
-if(ahora-ultimo>150){
-ultimo=ahora;
-
-let c=document.createElement("div");
-c.className="corazon";
-c.innerText="💖";
-c.style.left=e.clientX+"px";
-c.style.top=e.clientY+"px";
-
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),800);
-}
-});
 </script>
 
 </body>

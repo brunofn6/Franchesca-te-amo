@@ -119,11 +119,6 @@
 </section>
 
 <script>
-// 🔒 OCULTAR SIEMPRE AL INICIAR (FIX REAL)
-window.onload = function(){
-  document.getElementById("propuesta").style.display = "none";
-}
-
 // MUSICA
 function activarMusica(){
 document.getElementById("musica").play();
@@ -147,22 +142,25 @@ let f=document.getElementById("fecha").value.trim();
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
-document.getElementById("propuesta").style.display = "flex";
+document.getElementById("propuesta").classList.remove("oculto");
 explosion();
 }else{
 document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// BOTON NO ESCAPA
-let noBtn=document.getElementById("noBtn");
-noBtn.addEventListener("mouseover",()=>{
-noBtn.style.position="absolute";
-noBtn.style.left=Math.random()*80+"%";
-noBtn.style.top=Math.random()*80+"%";
+// ESPERAR A QUE CARGUE EL DOM (ARREGLA BUG)
+window.addEventListener("DOMContentLoaded", () => {
+  let noBtn=document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.position="absolute";
+    noBtn.style.left=Math.random()*80+"%";
+    noBtn.style.top=Math.random()*80+"%";
+  });
 });
 
-// NO BORRA LA PAGINA
+// ACEPTAR
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
 "<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";

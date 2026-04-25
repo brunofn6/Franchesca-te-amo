@@ -6,6 +6,29 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* AJUSTES SIN BORRAR TU CSS */
+body{
+text-align:center;
+}
+
+.centrado{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.grande{
+font-size:1.5em;
+}
+
+.extra-grande{
+font-size:2em;
+}
+</style>
+
 </head>
 
 <body>
@@ -20,53 +43,52 @@
 </audio>
 
 <!-- HERO -->
-<section class="hero">
-<h1>❤️ Te amo Franchesca ❤️</h1>
+<section class="hero centrado">
+<h1 class="extra-grande">❤️ Te amo Franchesca ❤️</h1>
 </section>
 
 <!-- CONTADOR -->
-<section class="contador">
-<h2>⏳ Desde que hablamos...</h2>
-<p id="tiempo"></p>
+<section class="contador centrado">
+<h2 class="extra-grande">⏳ Desde que hablamos...</h2>
+<p id="tiempo" class="grande"></p>
 </section>
 
 <!-- RAZONES -->
-<section class="razones">
-<h2>25 razones por las que te amo 💖</h2>
+<section class="razones centrado">
+<h2 class="extra-grande">25 razones por las que te amo 💖</h2>
 <ul>
-<li>Tu sonrisa 😍</li>
-<li>Tu mirada 💕</li>
-<li>Cómo me hacés sentir 💘</li>
-<li>Tu risa 😂</li>
-<li>Tu ternura 🥺</li>
-<li>Tu forma de ser 💖</li>
-<li>Tu personalidad 💞</li>
-<li>Tu voz 🎶</li>
-<li>Tu cariño 🥰</li>
-<li>Tu paciencia 💗</li>
-<li>Tu dulzura 💘</li>
-<li>Tu energía ⚡</li>
-<li>Tu apoyo 💓</li>
-<li>Tu compañía 💕</li>
-<li>Cómo me mirás 😍</li>
-<li>Cómo me cuidás 💖</li>
-<li>Cómo sos conmigo 💘</li>
-<li>Todo lo que vivimos 💞</li>
-<li>Tu locura 😜</li>
-<li>Tu belleza 💗</li>
-<li>Tu forma de amar 💓</li>
-<li>Cómo me hacés reír 😂</li>
-<li>Todo lo que sos 💕</li>
-<li>Todo lo que seremos 💘</li>
-<li>Porque sos vos ❤️</li>
+<li class="grande">Tu sonrisa 😍</li>
+<li class="grande">Tu mirada 💕</li>
+<li class="grande">Cómo me hacés sentir 💘</li>
+<li class="grande">Tu risa 😂</li>
+<li class="grande">Tu ternura 🥺</li>
+<li class="grande">Tu forma de ser 💖</li>
+<li class="grande">Tu personalidad 💞</li>
+<li class="grande">Tu voz 🎶</li>
+<li class="grande">Tu cariño 🥰</li>
+<li class="grande">Tu paciencia 💗</li>
+<li class="grande">Tu dulzura 💘</li>
+<li class="grande">Tu energía ⚡</li>
+<li class="grande">Tu apoyo 💓</li>
+<li class="grande">Tu compañía 💕</li>
+<li class="grande">Cómo me mirás 😍</li>
+<li class="grande">Cómo me cuidás 💖</li>
+<li class="grande">Cómo sos conmigo 💘</li>
+<li class="grande">Todo lo que vivimos 💞</li>
+<li class="grande">Tu locura 😜</li>
+<li class="grande">Tu belleza 💗</li>
+<li class="grande">Tu forma de amar 💓</li>
+<li class="grande">Cómo me hacés reír 😂</li>
+<li class="grande">Todo lo que sos 💕</li>
+<li class="grande">Todo lo que seremos 💘</li>
+<li class="grande">Porque sos vos ❤️</li>
 </ul>
 </section>
 
-<!-- FOTOS (19 TOTAL) -->
-<section class="fotos">
-<h2>Nosotros 💕</h2>
+<!-- FOTOS -->
+<section class="fotos centrado">
+<h2 class="extra-grande">Nosotros 💕</h2>
 <div class="galeria">
-
 <img src="foto1.jpg">
 <img src="foto2.jpg">
 <img src="foto3.jpg">
@@ -86,13 +108,12 @@
 <img src="foto17.jpg">
 <img src="foto18.jpg">
 <img src="foto19.jpg">
-
 </div>
 </section>
 
 <!-- VIDEOS -->
-<section class="videos">
-<h2>Momentos 🎥</h2>
+<section class="videos centrado">
+<h2 class="extra-grande">Momentos 🎥</h2>
 <div class="galeria">
 <video controls src="video1.mp4"></video>
 <video controls src="video2.mp4"></video>
@@ -101,20 +122,22 @@
 </section>
 
 <!-- CARTA -->
-<section class="carta">
+<section class="carta centrado">
 <button onclick="abrirCarta()">💌 Abrí esto</button>
-<p id="mensajeCarta"></p>
+<p id="mensajeCarta" class="grande"></p>
 </section>
 
 <!-- RETO -->
-<section class="sorpresa">
-<h2>🎯 Reto</h2>
+<section class="sorpresa centrado">
+<h2 class="extra-grande">🎯 Reto</h2>
+
 <input type="text" id="fecha" placeholder="dd/mm">
 <button onclick="verificar()">Intentar</button>
-<p id="resultado"></p>
 
-<div id="propuesta" class="oculto">
-<h2>💖 ¿Querés ser mi novia? 💖</h2>
+<p id="resultado" class="grande"></p>
+
+<div id="propuesta" class="oculto centrado">
+<h2 class="extra-grande">💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
 <button id="noBtn">NO 😜</button>
 </div>
@@ -167,7 +190,7 @@ noBtn.style.top=Math.random()*80+"%";
 
 // FINAL
 function aceptar(){
-document.body.innerHTML="<h1 style='font-size:60px;text-align:center'>💖 YA SOS MI NOVIA 💖</h1>";
+document.body.innerHTML="<h1 style='font-size:70px;text-align:center'>💖 YA SOS MI NOVIA 💖</h1>";
 }
 
 // CORAZONES
@@ -204,15 +227,23 @@ document.body.classList.add("shake");
 setTimeout(()=>document.body.classList.remove("shake"),500);
 }
 
-// MOUSE CORAZONES
+// MOUSE CORAZONES (MENOS CANTIDAD)
+let ultimo = 0;
 document.addEventListener("mousemove",(e)=>{
+let ahora = Date.now();
+
+if(ahora - ultimo > 120){
+ultimo = ahora;
+
 let c=document.createElement("div");
 c.className="corazon";
 c.innerText="💖";
 c.style.left=e.clientX+"px";
 c.style.top=e.clientY+"px";
+
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
+}
 });
 </script>
 

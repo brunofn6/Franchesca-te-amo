@@ -109,13 +109,11 @@
 
 <p id="resultado"></p>
 
-<!-- OCULTO DE VERDAD -->
-<div id="propuesta" style="display:none;">
+<div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
 <button id="noBtn">NO 😜</button>
 </div>
-
 </section>
 
 <script>
@@ -142,11 +140,7 @@ let f=document.getElementById("fecha").value.trim();
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
-
-let p = document.getElementById("propuesta");
-p.style.display="flex";
-p.classList.add("animar");
-
+document.getElementById("propuesta").classList.remove("oculto");
 explosion();
 }else{
 document.getElementById("resultado").innerText="😜 Intentá de nuevo";
@@ -164,7 +158,7 @@ noBtn.style.top=Math.random()*80+"%";
 // ACEPTAR
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
-"<h1 class='final'>💖 YA SOS MI NOVIA 💖</h1>";
+"<h1>💖 YA SOS MI NOVIA 💖</h1>";
 explosion();
 }
 
@@ -196,10 +190,11 @@ function explosion(){
 for(let i=0;i<80;i++) crear("explosion");
 }
 
-// MENOS CORAZONES
+// MENOS CORAZONES MOUSE
 let ultimo=0;
 document.addEventListener("mousemove",(e)=>{
 let ahora=Date.now();
+
 if(ahora-ultimo>150){
 ultimo=ahora;
 

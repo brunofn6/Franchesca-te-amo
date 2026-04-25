@@ -246,16 +246,11 @@ img:hover,video:hover{
 
 /* OCULTO */
 .oculto{
-  display:none;
+  display:none !important;
 }
 
 /* ANIMACIONES */
 @keyframes fadeIn{
   from{opacity:0;}
   to{opacity:1;}
-}
-
-/* 🔒 FORZAR OCULTO SIEMPRE */
-#propuesta.oculto{
-  display:none !important;
 }

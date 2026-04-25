@@ -10,9 +10,7 @@
 
 <body>
 
-<button class="musica-btn" onclick="activarMusica()">
-🎵 Música 💖
-</button>
+<button class="musica-btn" onclick="activarMusica()">🎵 Música 💖</button>
 
 <audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
@@ -58,7 +56,6 @@
 </ul>
 </section>
 
-<!-- 🔥 NUEVA SECCIÓN AGREGADA -->
 <section class="amor-eterno">
 <h2>💖 Quiero que seas vos para siempre 💖</h2>
 <p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
@@ -112,7 +109,6 @@
 
 <p id="resultado"></p>
 
-<!-- 🔒 YA ESTÁ OCULTO HASTA ACERTAR -->
 <div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
@@ -138,7 +134,7 @@ document.getElementById("tiempo").innerText=
 `${d} días, ${h} horas, ${m} minutos 💕`;
 },1000);
 
-// 🔥 RETO ARREGLADO (06/04)
+// RETO
 function verificar(){
 let f=document.getElementById("fecha").value.trim();
 
@@ -151,7 +147,7 @@ document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// BOTON NO ESCAPA
+// BOTON NO
 let noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
 noBtn.style.position="absolute";
@@ -159,10 +155,10 @@ noBtn.style.left=Math.random()*80+"%";
 noBtn.style.top=Math.random()*80+"%";
 });
 
-// 🔥 NO BORRA LA PAGINA (ARREGLADO)
+// ACEPTAR
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
-"<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";
+"<h1>💖 YA SOS MI NOVIA 💖</h1>";
 explosion();
 }
 
@@ -172,7 +168,7 @@ setInterval(()=>crear("normal"),200);
 function crear(tipo){
 let c=document.createElement("div");
 c.className="corazon";
-c.innerText=["❤️","💖","💘","💕","💞","💓","🏹"][Math.floor(Math.random()*7)];
+c.innerText=["❤️","💖","💘","💕","💞","💓"][Math.floor(Math.random()*6)];
 
 if(tipo==="explosion"){
 c.style.left="50vw";
@@ -194,7 +190,7 @@ function explosion(){
 for(let i=0;i<80;i++) crear("explosion");
 }
 
-// 🖱️ MENOS CORAZONES (ARREGLADO)
+// MENOS CORAZONES MOUSE
 let ultimo=0;
 document.addEventListener("mousemove",(e)=>{
 let ahora=Date.now();

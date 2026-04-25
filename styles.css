@@ -1,105 +1,171 @@
 body{
-margin:0;
-font-family:'Pacifico',cursive;
-overflow-x:hidden;
+  margin:0;
+  font-family:'Pacifico',cursive;
+  overflow-x:hidden;
+  text-align:center;
+  background:white;
+}
+
+/* SECCIONES */
+section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:60px 20px;
 }
 
 /* HERO */
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(#ffe4ec,#ffc0cb);
+  height:100vh;
+  background:linear-gradient(#ffe4ec,#ffc0cb);
 }
 
 .hero h1{
-font-size:65px;
-color:#e11d48;
+  font-size:80px;
+  color:#e11d48;
+  margin:0;
 }
 
 /* CONTADOR */
 .contador h2{
-font-size:40px;
-text-align:center;
+  font-size:50px;
 }
 
 #tiempo{
-font-size:30px;
-text-align:center;
+  font-size:35px;
+  margin-top:10px;
 }
 
 /* RAZONES */
 .razones h2{
-font-size:45px;
-text-align:center;
+  font-size:55px;
+}
+
+.razones ul{
+  list-style:none;
+  padding:0;
 }
 
 .razones li{
-font-size:30px;
-font-weight:bold;
-margin:12px;
-text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  margin:10px 0;
 }
 
 /* GALERIA */
 .galeria{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  max-width:1200px;
 }
 
 img,video{
-width:260px;
-border-radius:15px;
-transition:0.3s;
+  width:260px;
+  border-radius:15px;
+  transition:0.3s;
 }
 
 img:hover,video:hover{
-transform:scale(1.1);
+  transform:scale(1.1);
 }
 
-/* BOTON */
-button{
-font-size:18px;
-padding:10px 15px;
+/* CARTA */
+.carta button{
+  font-size:25px;
+}
+
+#mensajeCarta{
+  font-size:35px;
+  margin-top:15px;
+}
+
+/* RETO */
+.sorpresa h2{
+  font-size:55px;
+}
+
+.sorpresa input{
+  font-size:24px;
+  padding:10px;
+  text-align:center;
+  margin:10px;
+}
+
+.sorpresa button{
+  font-size:24px;
+  padding:10px 20px;
+  margin:10px;
+}
+
+#resultado{
+  font-size:35px;
+}
+
+/* PROPUESTA */
+#propuesta{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+}
+
+#propuesta h2{
+  font-size:50px;
+}
+
+/* BOTÓN MÚSICA */
+.musica-btn{
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:9999;
+  font-size:18px;
 }
 
 /* CORAZONES */
 .corazon{
-position:fixed;
-animation:caer 5s linear;
-pointer-events:none;
+  position:fixed;
+  pointer-events:none;
+  animation:caer 5s linear;
+  z-index:999;
 }
 
 @keyframes caer{
-to{transform:translateY(100vh);}
+  from{
+    transform:translateY(-10vh);
+  }
+  to{
+    transform:translateY(110vh);
+  }
 }
 
+/* EXPLOSION */
 .explosion{
-animation:explosion 1s forwards;
+  animation:explosion 1s forwards;
 }
 
 @keyframes explosion{
-to{transform:translate(var(--x),var(--y));opacity:0;}
+  to{
+    transform:translate(var(--x),var(--y));
+    opacity:0;
+  }
 }
 
+/* VIBRACION */
 .shake{
-animation:shake 0.5s;
+  animation:shake 0.5s;
 }
 
 @keyframes shake{
-0%{transform:translate(5px,5px);}
-50%{transform:translate(-5px,-5px);}
-100%{transform:translate(5px,5px);}
+  0%{transform:translate(5px,5px);}
+  50%{transform:translate(-5px,-5px);}
+  100%{transform:translate(5px,5px);}
 }
 
-.oculto{display:none;}
-
-.musica-btn{
-position:fixed;
-top:10px;
-right:10px;
-z-index:9999;
+/* OCULTO */
+.oculto{
+  display:none;
 }

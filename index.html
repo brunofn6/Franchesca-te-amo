@@ -58,7 +58,7 @@
 </ul>
 </section>
 
-<!-- MENSAJE ESPECIAL -->
+<!-- 🔥 NUEVA SECCIÓN AGREGADA -->
 <section class="amor-eterno">
 <h2>💖 Quiero que seas vos para siempre 💖</h2>
 <p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
@@ -98,7 +98,11 @@
 </div>
 </section>
 
-<!-- RETO -->
+<section class="carta">
+<button onclick="abrirCarta()">💌 Abrí esto</button>
+<p id="mensajeCarta"></p>
+</section>
+
 <section class="sorpresa">
 <h2>🎯 Reto</h2>
 <p>¿Qué día empezamos a hablar? 💘</p>
@@ -108,7 +112,7 @@
 
 <p id="resultado"></p>
 
-<!-- OCULTO -->
+<!-- 🔒 YA ESTÁ OCULTO HASTA ACERTAR -->
 <div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
@@ -134,9 +138,9 @@ document.getElementById("tiempo").innerText=
 `${d} días, ${h} horas, ${m} minutos 💕`;
 },1000);
 
-// RETO CORREGIDO
+// 🔥 RETO ARREGLADO (06/04)
 function verificar(){
-let f=document.getElementById("fecha").value;
+let f=document.getElementById("fecha").value.trim();
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
@@ -155,10 +159,10 @@ noBtn.style.left=Math.random()*80+"%";
 noBtn.style.top=Math.random()*80+"%";
 });
 
-// ACEPTAR (NO BORRA LA PAGINA)
+// 🔥 NO BORRA LA PAGINA (ARREGLADO)
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
-"<h1 style='font-size:60px'>💖 YA SOS MI NOVIA 💖</h1>";
+"<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";
 explosion();
 }
 
@@ -189,6 +193,25 @@ setTimeout(()=>c.remove(),4000);
 function explosion(){
 for(let i=0;i<80;i++) crear("explosion");
 }
+
+// 🖱️ MENOS CORAZONES (ARREGLADO)
+let ultimo=0;
+document.addEventListener("mousemove",(e)=>{
+let ahora=Date.now();
+
+if(ahora-ultimo>150){
+ultimo=ahora;
+
+let c=document.createElement("div");
+c.className="corazon";
+c.innerText="💖";
+c.style.left=e.clientX+"px";
+c.style.top=e.clientY+"px";
+
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),800);
+}
+});
 </script>
 
 </body>

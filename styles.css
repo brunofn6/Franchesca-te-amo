@@ -1,100 +1,105 @@
-body {
-  margin: 0;
-  font-family: 'Pacifico', cursive;
-  background: white;
-  overflow-x: hidden;
+body{
+margin:0;
+font-family:'Pacifico',cursive;
+overflow-x:hidden;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #ffe4ec, #ffc0cb);
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#ffe4ec,#ffc0cb);
 }
 
-.hero h1 {
-  font-size: 55px;
-  color: #e11d48;
-  text-align: center;
+.hero h1{
+font-size:65px;
+color:#e11d48;
 }
 
-.razones {
-  padding: 60px;
-  text-align: center;
-  background: #fff0f5;
+/* CONTADOR */
+.contador h2{
+font-size:40px;
+text-align:center;
 }
 
-.razones h2 {
-  font-size: 40px;
-  color: #e11d48;
+#tiempo{
+font-size:30px;
+text-align:center;
 }
 
-.razones li {
-  font-size: 28px;
-  font-weight: bold;
-  color: #be123c;
-  margin: 15px 0;
+/* RAZONES */
+.razones h2{
+font-size:45px;
+text-align:center;
 }
 
-.galeria {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 40px;
+.razones li{
+font-size:30px;
+font-weight:bold;
+margin:12px;
+text-align:center;
 }
 
-img, video {
-  width: 250px;
-  border-radius: 15px;
+/* GALERIA */
+.galeria{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
 }
 
-.sorpresa {
-  text-align: center;
-  padding: 60px;
-  background: #ffe4ec;
+img,video{
+width:260px;
+border-radius:15px;
+transition:0.3s;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
-  margin: 5px;
+img:hover,video:hover{
+transform:scale(1.1);
 }
 
-button {
-  background: #e11d48;
-  color: white;
-  border: none;
-  border-radius: 10px;
+/* BOTON */
+button{
+font-size:18px;
+padding:10px 15px;
 }
 
 /* CORAZONES */
-.corazon {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  animation: caer 6s linear;
+.corazon{
+position:fixed;
+animation:caer 5s linear;
+pointer-events:none;
 }
 
-/* CAÍDA */
-@keyframes caer {
-  from { transform: translateY(-10vh); }
-  to { transform: translateY(110vh); }
+@keyframes caer{
+to{transform:translateY(100vh);}
 }
 
-/* EXPLOSIÓN */
-.explosion {
-  animation: explotar 1s ease-out forwards;
+.explosion{
+animation:explosion 1s forwards;
 }
 
-@keyframes explotar {
-  0% {
-    transform: translate(0,0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--x), var(--y)) scale(1.5);
-    opacity: 0;
-  }
+@keyframes explosion{
+to{transform:translate(var(--x),var(--y));opacity:0;}
+}
+
+.shake{
+animation:shake 0.5s;
+}
+
+@keyframes shake{
+0%{transform:translate(5px,5px);}
+50%{transform:translate(-5px,-5px);}
+100%{transform:translate(5px,5px);}
+}
+
+.oculto{display:none;}
+
+.musica-btn{
+position:fixed;
+top:10px;
+right:10px;
+z-index:9999;
 }

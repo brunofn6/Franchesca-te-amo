@@ -253,4 +253,7 @@ img:hover,video:hover{
 @keyframes fadeIn{
   from{opacity:0;}
   to{opacity:1;}
+/* 🔒 FORZAR QUE INICIE OCULTO */
+#propuesta.oculto{
+  display:none !important;
 }

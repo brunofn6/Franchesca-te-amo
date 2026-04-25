@@ -5,6 +5,7 @@ text-align:center;
 background:linear-gradient(#fff,#ffe4ec);
 }
 
+/* SECCIONES */
 section{
 display:flex;
 flex-direction:column;
@@ -13,6 +14,7 @@ justify-content:center;
 padding:60px 20px;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 background:linear-gradient(#ffe4ec,#ffc0cb);
@@ -23,18 +25,10 @@ font-size:80px;
 color:#e11d48;
 }
 
-h2{
-font-size:50px;
-}
-
-p{
-font-size:30px;
-}
-
-li{
-font-size:28px;
-font-weight:bold;
-}
+/* TEXTOS */
+h2{font-size:50px;}
+p{font-size:30px;}
+li{font-size:28px;font-weight:bold;}
 
 /* GALERIA */
 .galeria{
@@ -62,24 +56,38 @@ text-shadow:2px 2px 10px black;
 padding:120px 20px;
 }
 
-.amor-eterno h2{
-font-size:60px;
-}
-
-.amor-eterno p{
-font-size:30px;
-}
+.amor-eterno h2{font-size:60px;}
+.amor-eterno p{font-size:30px;}
 
 /* BOTONES */
 button{
 font-size:22px;
 padding:10px 20px;
 margin:10px;
+cursor:pointer;
 }
 
-/* OCULTO (CLAVE) */
-.oculto{
-display:none !important;
+/* PROPUESTA */
+#propuesta{
+flex-direction:column;
+align-items:center;
+gap:20px;
+}
+
+/* ANIMACION APARECER */
+.animar{
+animation:zoomIn 0.6s ease;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(0.5);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+/* FINAL */
+.final{
+font-size:70px;
+animation:zoomIn 0.8s ease;
 }
 
 /* CORAZONES */

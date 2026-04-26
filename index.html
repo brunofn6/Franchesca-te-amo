@@ -10,6 +10,14 @@
 
 <body>
 
+<button class="musica-btn" onclick="activarMusica()">
+🎵 Música 💖
+</button>
+
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <section class="hero">
 <h1>❤️ Te amo Franchesca ❤️</h1>
 </section>
@@ -27,7 +35,66 @@
 <li>Cómo me hacés sentir 💘</li>
 <li>Tu risa 😂</li>
 <li>Tu ternura 🥺</li>
+<li>Tu forma de ser 💖</li>
+<li>Tu personalidad 💞</li>
+<li>Tu voz 🎶</li>
+<li>Tu cariño 🥰</li>
+<li>Tu paciencia 💗</li>
+<li>Tu dulzura 💘</li>
+<li>Tu energía ⚡</li>
+<li>Tu apoyo 💓</li>
+<li>Tu compañía 💕</li>
+<li>Cómo me mirás 😍</li>
+<li>Cómo me cuidás 💖</li>
+<li>Cómo sos conmigo 💘</li>
+<li>Todo lo que vivimos 💞</li>
+<li>Tu locura 😜</li>
+<li>Tu belleza 💗</li>
+<li>Tu forma de amar 💓</li>
+<li>Cómo me hacés reír 😂</li>
+<li>Todo lo que sos 💕</li>
+<li>Todo lo que seremos 💘</li>
+<li>Porque sos vos ❤️</li>
 </ul>
+</section>
+
+<section class="amor-eterno">
+<h2>💖 Quiero que seas vos para siempre 💖</h2>
+<p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
+</section>
+
+<section class="fotos">
+<h2>Nosotros 💕</h2>
+<div class="galeria">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+<img src="foto5.jpg">
+<img src="foto6.jpg">
+<img src="foto7.jpg">
+<img src="foto8.jpg">
+<img src="foto9.jpg">
+<img src="foto10.jpg">
+<img src="foto11.jpg">
+<img src="foto12.jpg">
+<img src="foto13.jpg">
+<img src="foto14.jpg">
+<img src="foto15.jpg">
+<img src="foto16.jpg">
+<img src="foto17.jpg">
+<img src="foto18.jpg">
+<img src="foto19.jpg">
+</div>
+</section>
+
+<section class="videos">
+<h2>Momentos 🎥</h2>
+<div class="galeria">
+<video controls src="video1.mp4"></video>
+<video controls src="video2.mp4"></video>
+<video controls src="video3.mp4"></video>
+</div>
 </section>
 
 <section class="sorpresa">
@@ -39,22 +106,21 @@
 
 <p id="resultado"></p>
 
-<!-- 💌 CARTA -->
+<!-- 💌 CARTA FINAL -->
 <div id="cartaFinal" class="oculto">
-  <div class="slider">
-    <img src="foto1.jpg" class="slide activo">
-    <img src="foto2.jpg" class="slide">
-    <img src="foto3.jpg" class="slide">
-    <img src="foto4.jpg" class="slide">
-    <img src="foto5.jpg" class="slide">
+
+  <!-- 📸 FOTOS -->
+  <img src="carta1.jpg" class="carta-fondo activa">
+  <img src="carta2.jpg" class="carta-fondo">
+  <img src="carta3.jpg" class="carta-fondo">
+  <img src="carta4.jpg" class="carta-fondo">
+  <img src="carta5.jpg" class="carta-fondo">
+
+  <!-- TEXTO -->
+  <div class="carta-contenido">
+    <p id="textoCarta"></p>
   </div>
 
-  <div class="texto-carta">
-    <p>
-      Acá escribís tu carta 💖<br><br>
-      Te amo muchísimo y quiero todo con vos...
-    </p>
-  </div>
 </div>
 
 <!-- 💖 PROPUESTA -->
@@ -67,6 +133,11 @@
 </section>
 
 <script>
+// MUSICA
+function activarMusica(){
+document.getElementById("musica").play();
+}
+
 // CONTADOR
 const inicio = new Date("2026-04-06T01:56:00");
 setInterval(()=>{
@@ -85,40 +156,49 @@ let f=document.getElementById("fecha").value.trim();
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
-
-let carta = document.getElementById("cartaFinal");
-carta.classList.remove("oculto");
-
-setTimeout(()=>carta.classList.add("mostrar"),10);
-
-iniciarSlider();
-
+explosion();
+mostrarCarta();
 }else{
 document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// SLIDER
-function iniciarSlider(){
-  let slides = document.querySelectorAll(".slide");
-  let i = 0;
+// 💌 MOSTRAR CARTA
+function mostrarCarta(){
+  document.getElementById("cartaFinal").classList.remove("oculto");
+  iniciarFotos();
+  escribirTexto();
+}
 
-  let intervalo = setInterval(()=>{
-    slides[i].classList.remove("activo");
+// 📸 CAMBIO FOTOS
+function iniciarFotos(){
+  let fotos=document.querySelectorAll(".carta-fondo");
+  let i=0;
+
+  setInterval(()=>{
+    fotos[i].classList.remove("activa");
+    i=(i+1)%fotos.length;
+    fotos[i].classList.add("activa");
+  },3000);
+}
+
+// ✍️ TEXTO AUTOMÁTICO
+function escribirTexto(){
+  let texto="no sabes cuanto te amo fran,, sos una banda para mi";
+  let i=0;
+
+  let intervalo=setInterval(()=>{
+    document.getElementById("textoCarta").innerHTML += texto[i];
     i++;
 
-    if(i >= slides.length){
+    if(i>=texto.length){
       clearInterval(intervalo);
 
-      let p = document.getElementById("propuesta");
-      p.classList.remove("oculto");
-      p.style.display = "flex";
-
-      return;
+      setTimeout(()=>{
+        document.getElementById("propuesta").classList.remove("oculto");
+      },1500);
     }
-
-    slides[i].classList.add("activo");
-  }, 2000);
+  },40);
 }
 
 // BOTON NO ESCAPA
@@ -136,7 +216,55 @@ window.addEventListener("DOMContentLoaded", () => {
 function aceptar(){
 document.getElementById("propuesta").innerHTML =
 "<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";
+explosion();
 }
+
+// CORAZONES
+setInterval(()=>crear("normal"),200);
+
+function crear(tipo){
+let c=document.createElement("div");
+c.className="corazon";
+c.innerText=["❤️","💖","💘","💕","💞","💓","🏹"][Math.floor(Math.random()*7)];
+
+if(tipo==="explosion"){
+c.style.left="50vw";
+c.style.top="50vh";
+let x=(Math.random()-0.5)*600;
+let y=(Math.random()-0.5)*600;
+c.style.setProperty('--x',x+"px");
+c.style.setProperty('--y',y+"px");
+c.classList.add("explosion");
+}else{
+c.style.left=Math.random()*100+"vw";
+}
+
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),4000);
+}
+
+function explosion(){
+for(let i=0;i<80;i++) crear("explosion");
+}
+
+// MENOS CORAZONES
+let ultimo=0;
+document.addEventListener("mousemove",(e)=>{
+let ahora=Date.now();
+
+if(ahora-ultimo>150){
+ultimo=ahora;
+
+let c=document.createElement("div");
+c.className="corazon";
+c.innerText="💖";
+c.style.left=e.clientX+"px";
+c.style.top=e.clientY+"px";
+
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),800);
+}
+});
 </script>
 
 </body>

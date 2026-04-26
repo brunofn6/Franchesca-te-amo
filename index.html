@@ -97,11 +97,6 @@
 </div>
 </section>
 
-<section class="carta">
-<button onclick="abrirCarta()">💌 Abrí esto</button>
-<p id="mensajeCarta"></p>
-</section>
-
 <section class="sorpresa">
 <h2>🎯 Reto</h2>
 <p>¿Qué día empezamos a hablar? 💘</p>
@@ -136,20 +131,24 @@ document.getElementById("tiempo").innerText=
 `${d} días, ${h} horas, ${m} minutos 💕`;
 },1000);
 
-// RETO
+// RETO (FIX REAL)
 function verificar(){
 let f=document.getElementById("fecha").value.trim();
 
 if(f==="06/04" || f==="6/4"){
 document.getElementById("resultado").innerText="💖 Correcto 💖";
-document.getElementById("propuesta").classList.remove("oculto");
+
+let p = document.getElementById("propuesta");
+p.classList.remove("oculto");
+p.style.display = "flex"; // 🔥 fuerza mostrar sí o sí
+
 explosion();
 }else{
 document.getElementById("resultado").innerText="😜 Intentá de nuevo";
 }
 }
 
-// ESPERAR A QUE CARGUE EL DOM (ARREGLA BUG)
+// BOTON NO ESCAPA
 window.addEventListener("DOMContentLoaded", () => {
   let noBtn=document.getElementById("noBtn");
 

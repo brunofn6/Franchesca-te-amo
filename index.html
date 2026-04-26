@@ -211,6 +211,23 @@ c.style.top=e.clientY+"px";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
+
+  // 🎨 CAMBIO DE FONDO SEGÚN SCROLL
+window.addEventListener("scroll", () => {
+  let y = window.scrollY;
+
+  if(y < 500){
+    document.body.style.background = "linear-gradient(to bottom, #ffffff, #ffe4ec)";
+  }
+  else if(y < 1500){
+    document.body.style.background = "linear-gradient(to bottom, #ffe4ec, #ffc0cb)";
+  }
+  else if(y < 2500){
+    document.body.style.background = "linear-gradient(to bottom, #ffc0cb, #ff9eb5)";
+  }
+  else{
+    document.body.style.background = "linear-gradient(to bottom, #ff9eb5, #e11d48)";
+  }
 });
 </script>
 

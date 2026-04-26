@@ -172,14 +172,16 @@ function mostrarCarta(){
 
 // 📸 CAMBIO FOTOS
 function iniciarFotos(){
-  let fotos=document.querySelectorAll(".carta-fondo");
-  let i=0;
+  let fotos = document.querySelectorAll(".carta-fondo");
+  let i = 0;
 
   setInterval(()=>{
     fotos[i].classList.remove("activa");
-    i=(i+1)%fotos.length;
+
+    i = (i + 1) % fotos.length;
+
     fotos[i].classList.add("activa");
-  },3000);
+  },4000); // más lento = más cine
 }
 
 // ✍️ TEXTO AUTOMÁTICO

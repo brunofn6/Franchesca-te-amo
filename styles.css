@@ -254,7 +254,3 @@ img:hover,video:hover{
   from{opacity:0;}
   to{opacity:1;}
 }
-
-body{
-  transition:background 1s ease;
-}

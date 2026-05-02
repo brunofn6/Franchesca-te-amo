@@ -304,3 +304,60 @@ img:hover,video:hover{
   line-height:1.6;
   backdrop-filter:blur(6px);
 }
+
+/* INTRO */
+#intro{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+  overflow:hidden;
+}
+
+.fondo-intro{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.fondo-intro span{
+  position:absolute;
+  animation:flotar 10s linear infinite;
+  opacity:0.3;
+}
+
+@keyframes flotar{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+.frases span{
+  position:absolute;
+  color:white;
+  opacity:0.08;
+  filter:blur(2px);
+}
+
+.intro-contenido{
+  position:relative;
+  z-index:2;
+  color:white;
+  font-size:30px;
+  max-width:700px;
+}
+
+#btnEntrar{
+  display:none;
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:15px;
+  background:#e11d48;
+  color:white;
+}

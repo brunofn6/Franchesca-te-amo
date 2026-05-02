@@ -199,11 +199,9 @@ function iniciarFotos(){
 
   setInterval(()=>{
     fotos[i].classList.remove("activa");
-
     i = (i + 1) % fotos.length;
-
     fotos[i].classList.add("activa");
-  },4000); // más lento = más cine
+  },4000);
 }
 
 // ✍️ TEXTO AUTOMÁTICO
@@ -217,7 +215,6 @@ function escribirTexto(){
 
     if(i>=texto.length){
       clearInterval(intervalo);
-
       setTimeout(()=>{
         document.getElementById("propuesta").classList.remove("oculto");
       },1500);
@@ -288,8 +285,12 @@ c.style.top=e.clientY+"px";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
+});
 
-  // INTRO FONDO
+
+// ================== 💖 INTRO ==================
+
+// FONDO (corazones + ñoquis)
 let fondo = document.getElementById("fondoIntro");
 
 setInterval(()=>{
@@ -316,12 +317,17 @@ let escribirIntro = setInterval(()=>{
   }
 },40);
 
-// ENTRAR
+// ENTRAR (con animación)
 function entrar(){
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("contenido").style.display = "block";
+  let intro = document.getElementById("intro");
+
+  intro.style.opacity = "0";
+
+  setTimeout(()=>{
+    intro.style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+  },500);
 }
-});
 </script>
     
 </div>

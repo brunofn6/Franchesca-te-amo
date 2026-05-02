@@ -3,270 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <title>Te amo Franchesca</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<button class="musica-btn" onclick="activarMusica()">
-🎵 Música 💖
-</button>
+<!-- 💖 INTRO -->
+<div id="intro">
 
-<audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+  <div class="fondo-intro" id="fondoIntro"></div>
+
+  <div class="frases">
+    <span style="top:10%;left:5%;">no sabes lo que vales para mi</span>
+    <span style="top:30%;left:60%;">sos todo</span>
+    <span style="top:70%;left:20%;">me haces feliz</span>
+    <span style="top:50%;left:40%;">no te cambio por nada</span>
+  </div>
+
+  <div class="intro-contenido">
+    <p id="textoIntro"></p>
+    <button id="btnEntrar" onclick="entrar()">Lista amor?? 💖</button>
+  </div>
+
+</div>
+
+<!-- 🔽 CONTENIDO ORIGINAL -->
+<div id="contenido" style="display:none;">
 
 <section class="hero">
 <h1>❤️ Te amo Franchesca ❤️</h1>
 </section>
 
-<section class="contador">
-<h2>⏳ Desde que hablamos...</h2>
-<p id="tiempo"></p>
-</section>
-
-<section class="razones">
-<h2>25 razones 💖</h2>
-<ul>
-<li>Tu sonrisa 😍</li>
-<li>Tu mirada 💕</li>
-<li>Cómo me hacés sentir 💘</li>
-<li>Tu risa 😂</li>
-<li>Tu ternura 🥺</li>
-<li>Tu forma de ser 💖</li>
-<li>Tu personalidad 💞</li>
-<li>Tu voz 🎶</li>
-<li>Tu cariño 🥰</li>
-<li>Tu paciencia 💗</li>
-<li>Tu dulzura 💘</li>
-<li>Tu energía ⚡</li>
-<li>Tu apoyo 💓</li>
-<li>Tu compañía 💕</li>
-<li>Cómo me mirás 😍</li>
-<li>Cómo me cuidás 💖</li>
-<li>Cómo sos conmigo 💘</li>
-<li>Todo lo que vivimos 💞</li>
-<li>Tu locura 😜</li>
-<li>Tu belleza 💗</li>
-<li>Tu forma de amar 💓</li>
-<li>Cómo me hacés reír 😂</li>
-<li>Todo lo que sos 💕</li>
-<li>Todo lo que seremos 💘</li>
-<li>Porque sos vos ❤️</li>
-</ul>
-</section>
-
-<section class="amor-eterno">
-<h2>💖 Quiero que seas vos para siempre 💖</h2>
-<p>No quiero algo pasajero, quiero todo con vos. Siempre vos.</p>
-</section>
-
-<section class="fotos">
-<h2>Nosotros 💕</h2>
-<div class="galeria">
-<img src="foto1.jpg">
-<img src="foto2.jpg">
-<img src="foto3.jpg">
-<img src="foto4.jpg">
-<img src="foto5.jpg">
-<img src="foto6.jpg">
-<img src="foto7.jpg">
-<img src="foto8.jpg">
-<img src="foto9.jpg">
-<img src="foto10.jpg">
-<img src="foto11.jpg">
-<img src="foto12.jpg">
-<img src="foto13.jpg">
-<img src="foto14.jpg">
-<img src="foto15.jpg">
-<img src="foto16.jpg">
-<img src="foto17.jpg">
-<img src="foto18.jpg">
-<img src="foto19.jpg">
+<!-- TODO TU CONTENIDO SIGUE IGUAL... -->
 </div>
-</section>
-
-<section class="videos">
-<h2>Momentos 🎥</h2>
-<div class="galeria">
-<video controls src="video1.mp4"></video>
-<video controls src="video2.mp4"></video>
-<video controls src="video3.mp4"></video>
-</div>
-</section>
-
-<section class="sorpresa">
-<h2>🎯 Reto</h2>
-<p>¿Qué día empezamos a hablar? 💘</p>
-
-<input type="text" id="fecha" placeholder="dd/mm">
-<button onclick="verificar()">Intentar</button>
-
-<p id="resultado"></p>
-
-<!-- 💌 CARTA FINAL -->
-<div id="cartaFinal" class="oculto">
-
-  <!-- 📸 FOTOS -->
-  <img src="carta1.jpg" class="carta-fondo activa">
-  <img src="carta2.jpg" class="carta-fondo">
-  <img src="carta3.jpg" class="carta-fondo">
-  <img src="carta4.jpg" class="carta-fondo">
-  <img src="carta5.jpg" class="carta-fondo">
-
-  <!-- TEXTO -->
-  <div class="carta-contenido">
-    <p id="textoCarta"></p>
-  </div>
-
-</div>
-
-<!-- 💖 PROPUESTA -->
-<div id="propuesta" class="oculto">
-<h2>💖 ¿Querés ser mi novia? 💖</h2>
-<button onclick="aceptar()">SÍ 💘</button>
-<button id="noBtn">NO 😜</button>
-</div>
-
-</section>
 
 <script>
-// MUSICA
-function activarMusica(){
-document.getElementById("musica").play();
-}
 
-// CONTADOR
-const inicio = new Date("2026-04-06T01:56:00");
+// 💖 GENERAR CORAZONES Y ÑOQUIS
+let fondo = document.getElementById("fondoIntro");
+
 setInterval(()=>{
-let ahora=new Date();
-let diff=ahora-inicio;
-let d=Math.floor(diff/86400000);
-let h=Math.floor(diff/3600000)%24;
-let m=Math.floor(diff/60000)%60;
-document.getElementById("tiempo").innerText=
-`${d} días, ${h} horas, ${m} minutos 💕`;
-},1000);
+  let el = document.createElement("span");
+  el.innerText = Math.random() > 0.5 ? "❤️" : "🥟";
+  el.style.left = Math.random()*100 + "vw";
+  el.style.fontSize = (20 + Math.random()*30) + "px";
+  fondo.appendChild(el);
 
-// RETO
-function verificar(){
-let f=document.getElementById("fecha").value.trim();
+  setTimeout(()=>el.remove(),10000);
+},300);
 
-if(f==="06/04" || f==="6/4"){
-document.getElementById("resultado").innerText="💖 Correcto 💖";
-explosion();
-mostrarCarta();
-}else{
-document.getElementById("resultado").innerText="😜 Intentá de nuevo";
-}
-}
+// ✍️ TEXTO AUTOMATICO (EDITÁ ACÁ)
+let texto = "ACÁ ESCRIBÍ EL CONTEXTO QUE LE QUERÉS DAR 💖";
+let i = 0;
 
-// 💌 MOSTRAR CARTA
-function mostrarCarta(){
-  document.getElementById("cartaFinal").classList.remove("oculto");
-  iniciarFotos();
-  escribirTexto();
-}
+let escribir = setInterval(()=>{
+  document.getElementById("textoIntro").innerHTML += texto[i];
+  i++;
 
-// 📸 CAMBIO FOTOS
-function iniciarFotos(){
-  let fotos = document.querySelectorAll(".carta-fondo");
-  let i = 0;
+  if(i >= texto.length){
+    clearInterval(escribir);
+    document.getElementById("btnEntrar").style.display = "inline-block";
+  }
+},40);
 
-  setInterval(()=>{
-    fotos[i].classList.remove("activa");
-
-    i = (i + 1) % fotos.length;
-
-    fotos[i].classList.add("activa");
-  },4000); // más lento = más cine
+// 👉 ENTRAR A LA WEB
+function entrar(){
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("contenido").style.display = "block";
 }
 
-// ✍️ TEXTO AUTOMÁTICO
-function escribirTexto(){
-  let texto="Hola fran, la verdad no sé si te gustó este detalle, espero que te parezca lindo porque aunque no pegue una con estas cosas, le dediqué días y días a esta página para que quede linda y sea algo que te guste. La verdad que tu relación es algo que no puedo explicar con palabras, aunque hablemos hace poco tiempo, te juro que siento que sos mi relación más larga, con vos mi tiempo se pasa volando y cuando te vas no paro de contar los minutos hasta verte de nuevo, ahora mismo estoy escribiéndote esto en videollamada con vos mientras amenazás a Juli de mostrarme sus mocos en la pared 😆, pero nada, quería que sepas que sos una persona muy especial y que por vos posta haría hasta lo imposible por tenerte a mi lado. Ojalá todo salga bien y tengamos algo que dure mucho tiempo, porque con vos siento que todo es diferente. No la hago más larga y te lo pregunto de una vez...";
-  let i=0;
-
-  let intervalo=setInterval(()=>{
-    document.getElementById("textoCarta").innerHTML += texto[i];
-    i++;
-
-    if(i>=texto.length){
-      clearInterval(intervalo);
-
-      setTimeout(()=>{
-        document.getElementById("propuesta").classList.remove("oculto");
-      },1500);
-    }
-  },40);
-}
-
-// BOTON NO ESCAPA
-window.addEventListener("DOMContentLoaded", () => {
-  let noBtn=document.getElementById("noBtn");
-
-  noBtn.addEventListener("mouseover",()=>{
-    noBtn.style.position="absolute";
-    noBtn.style.left=Math.random()*80+"%";
-    noBtn.style.top=Math.random()*80+"%";
-  });
-});
-
-// ACEPTAR
-function aceptar(){
-document.getElementById("propuesta").innerHTML =
-"<h1 style='font-size:70px'>💖 YA SOS MI NOVIA 💖</h1>";
-explosion();
-}
-
-// CORAZONES
-setInterval(()=>crear("normal"),200);
-
-function crear(tipo){
-let c=document.createElement("div");
-c.className="corazon";
-c.innerText=["❤️","💖","💘","💕","💞","💓","🏹"][Math.floor(Math.random()*7)];
-
-if(tipo==="explosion"){
-c.style.left="50vw";
-c.style.top="50vh";
-let x=(Math.random()-0.5)*600;
-let y=(Math.random()-0.5)*600;
-c.style.setProperty('--x',x+"px");
-c.style.setProperty('--y',y+"px");
-c.classList.add("explosion");
-}else{
-c.style.left=Math.random()*100+"vw";
-}
-
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),4000);
-}
-
-function explosion(){
-for(let i=0;i<80;i++) crear("explosion");
-}
-
-// MENOS CORAZONES
-let ultimo=0;
-document.addEventListener("mousemove",(e)=>{
-let ahora=Date.now();
-
-if(ahora-ultimo>150){
-ultimo=ahora;
-
-let c=document.createElement("div");
-c.className="corazon";
-c.innerText="💖";
-c.style.left=e.clientX+"px";
-c.style.top=e.clientY+"px";
-
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),800);
-}
-});
 </script>
 
 </body>

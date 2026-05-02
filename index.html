@@ -287,6 +287,39 @@ c.style.top=e.clientY+"px";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
+
+  // INTRO FONDO
+let fondo = document.getElementById("fondoIntro");
+
+setInterval(()=>{
+  let el = document.createElement("span");
+  el.innerText = Math.random() > 0.5 ? "❤️" : "🥟";
+  el.style.left = Math.random()*100 + "vw";
+  el.style.fontSize = (20 + Math.random()*30) + "px";
+
+  fondo.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+},300);
+
+// TEXTO INTRO (EDITÁ ACÁ)
+let textoIntro = "ACÁ ESCRIBÍ TU MENSAJE 💖";
+let iIntro = 0;
+
+let escribirIntro = setInterval(()=>{
+  document.getElementById("textoIntro").innerHTML += textoIntro[iIntro];
+  iIntro++;
+
+  if(iIntro >= textoIntro.length){
+    clearInterval(escribirIntro);
+    document.getElementById("btnEntrar").style.display = "inline-block";
+  }
+},40);
+
+// ENTRAR
+function entrar(){
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("contenido").style.display = "block";
+}
 });
 </script>
     

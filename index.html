@@ -11,9 +11,8 @@
 
 <body>
 
-  <!-- 💖 INTRO -->
+<!-- 💖 INTRO -->
 <div id="intro">
-
   <div class="fondo-intro" id="fondoIntro"></div>
 
   <div class="frases">
@@ -27,14 +26,12 @@
     <p id="textoIntro"></p>
     <button id="btnEntrar" onclick="entrar()">Lista amor?? 💖</button>
   </div>
-
 </div>
 
-  <div id="contenido" style="display:none;">
+<!-- 🔽 CONTENIDO REAL -->
+<div id="contenido" style="display:none;">
 
-<button class="musica-btn" onclick="activarMusica()">
-🎵 Música 💖
-</button>
+<button class="musica-btn" onclick="activarMusica()">🎵 Música 💖</button>
 
 <audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
@@ -128,24 +125,18 @@
 
 <p id="resultado"></p>
 
-<!-- 💌 CARTA FINAL -->
 <div id="cartaFinal" class="oculto">
-
-  <!-- 📸 FOTOS -->
   <img src="carta1.jpg" class="carta-fondo activa">
   <img src="carta2.jpg" class="carta-fondo">
   <img src="carta3.jpg" class="carta-fondo">
   <img src="carta4.jpg" class="carta-fondo">
   <img src="carta5.jpg" class="carta-fondo">
 
-  <!-- TEXTO -->
   <div class="carta-contenido">
     <p id="textoCarta"></p>
   </div>
-
 </div>
 
-<!-- 💖 PROPUESTA -->
 <div id="propuesta" class="oculto">
 <h2>💖 ¿Querés ser mi novia? 💖</h2>
 <button onclick="aceptar()">SÍ 💘</button>
@@ -153,6 +144,47 @@
 </div>
 
 </section>
+
+</div>
+
+<script>
+
+// INTRO
+let fondo = document.getElementById("fondoIntro");
+
+setInterval(()=>{
+  let el = document.createElement("span");
+  el.innerText = Math.random() > 0.5 ? "❤️" : "🥟";
+  el.style.left = Math.random()*100 + "vw";
+  el.style.fontSize = (20 + Math.random()*30) + "px";
+  fondo.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+},300);
+
+let textoIntro = "francesca te amo";
+let iIntro = 0;
+
+let escribirIntro = setInterval(()=>{
+  document.getElementById("textoIntro").innerHTML += textoIntro[iIntro];
+  iIntro++;
+
+  if(iIntro >= textoIntro.length){
+    clearInterval(escribirIntro);
+    document.getElementById("btnEntrar").style.display = "inline-block";
+  }
+},40);
+
+function entrar(){
+  let intro = document.getElementById("intro");
+
+  intro.style.opacity = "0";
+
+  setTimeout(()=>{
+    intro.style.display = "none";
+    document.body.style.overflow = "auto";
+    document.getElementById("contenido").style.display = "block";
+  },500);
+}
 
 <script>
 // MUSICA

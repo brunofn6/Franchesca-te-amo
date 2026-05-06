@@ -6,8 +6,6 @@ body{
   background:linear-gradient(to bottom, #ffffff, #ffe4ec);
 }
 
-/* SECCIONES */
-section{
 /* 🔒 INTRO */
 #intro{
   position:fixed;
@@ -16,13 +14,23 @@ section{
   width:100%;
   height:100vh;
   background:#000;
+/* SECCIONES */
+section{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  z-index:99999;
+  overflow:hidden;
   padding:80px 20px;
 }
 
+/* FONDO ANIMADO */
+.fondo-intro{
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 /* HERO */
 .hero{
   height:100vh;
@@ -30,53 +38,75 @@ section{
   animation:fadeIn 2s ease;
 }
 
+.fondo-intro span{
+  position:absolute;
+  font-size:30px;
+  animation:flotar 10s linear infinite;
+  opacity:0.3;
 .hero h1{
   font-size:85px;
   color:#e11d48;
   text-shadow:2px 2px 10px rgba(0,0,0,0.2);
 }
 
+@keyframes flotar{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
 /* CONTADOR */
 .contador h2{
   font-size:55px;
   color:#be123c;
 }
 
+/* FRASES DIFUMINADAS */
+.frases{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
 #tiempo{
   font-size:38px;
   margin-top:15px;
 }
 
+.frases span{
+  position:absolute;
+  color:white;
+  opacity:0.08;
+  font-size:30px;
+  filter:blur(2px);
 /* RAZONES */
 .razones h2{
   font-size:60px;
   color:#e11d48;
 }
 
+/* TEXTO CENTRAL */
+.intro-contenido{
+  position:relative;
+  z-index:2;
+  color:white;
+  max-width:700px;
+  font-size:30px;
 .razones ul{
   list-style:none;
   padding:0;
   max-width:800px;
 }
 
+/* BOTON */
+#btnEntrar{
+  margin-top:30px;
 .razones li{
   font-size:32px;
   font-weight:bold;
   margin:12px 0;
   transition:0.3s;
-  z-index:99999;
-  overflow:hidden;
 }
 
 .razones li:hover{
   transform:scale(1.05);
   color:#e11d48;
-/* FONDO ANIMADO */
-.fondo-intro{
-  position:absolute;
-  width:100%;
-  height:100%;
-  overflow:hidden;
 }
 
 /* GALERIA */
@@ -86,11 +116,6 @@ section{
   justify-content:center;
   gap:20px;
   max-width:1200px;
-.fondo-intro span{
-  position:absolute;
-  font-size:30px;
-  animation:flotar 10s linear infinite;
-  opacity:0.3;
 }
 
 img,video{
@@ -98,55 +123,57 @@ img,video{
   border-radius:15px;
   transition:0.4s;
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
-@keyframes flotar{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-10vh);}
 }
 
 img:hover,video:hover{
   transform:scale(1.1) rotate(1deg);
-/* FRASES DIFUMINADAS */
-.frases{
-  position:absolute;
-  width:100%;
-  height:100%;
-  pointer-events:none;
 }
 
 /* CARTA */
 .carta button{
   font-size:26px;
   padding:12px 25px;
+  font-size:22px;
   border:none;
   border-radius:15px;
   background:#e11d48;
-.frases span{
-  position:absolute;
   color:white;
   cursor:pointer;
+  display:none;
   transition:0.3s;
 }
 
+/* OCULTO */
+.oculto{
+  display:none;
 .carta button:hover{
   transform:scale(1.1);
   background:#be123c;
-  opacity:0.08;
-  font-size:30px;
-  filter:blur(2px);
 }
 
+/* === TODO TU CSS ORIGINAL ABAJO (NO TOCADO) === */
 #mensajeCarta{
   font-size:35px;
   margin-top:20px;
   color:#be123c;
 }
 
+section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:80px 20px;
 /* RETO */
 .sorpresa h2{
   font-size:60px;
   color:#e11d48;
 }
 
+.hero{
+  height:100vh;
+  background:linear-gradient(135deg,#ffe4ec,#ffc0cb);
+  animation:fadeIn 2s ease;
 .sorpresa input{
   font-size:26px;
   padding:12px;
@@ -156,23 +183,22 @@ img:hover,video:hover{
   margin:10px;
 }
 
+.hero h1{
+  font-size:85px;
+  color:#e11d48;
 .sorpresa button{
   font-size:26px;
   padding:12px 25px;
   border:none;
   border-radius:15px;
   background:#e11d48;
-/* TEXTO CENTRAL */
-.intro-contenido{
-  position:relative;
-  z-index:2;
   color:white;
   cursor:pointer;
   transition:0.3s;
-  max-width:700px;
-  font-size:30px;
 }
 
+.contador h2{font-size:55px;color:#be123c;}
+#tiempo{font-size:38px;margin-top:15px;}
 .sorpresa button:hover{
   transform:scale(1.1);
   background:#be123c;
@@ -183,17 +209,20 @@ img:hover,video:hover{
   margin-top:15px;
 }
 
+.razones h2{font-size:60px;color:#e11d48;}
+.razones ul{list-style:none;padding:0;}
+.razones li{font-size:32px;margin:12px 0;}
 /* PROPUESTA */
 #propuesta{
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:20px;
-/* BOTON */
-#btnEntrar{
   margin-top:30px;
 }
 
+.galeria{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+img,video{width:260px;border-radius:15px;}
 #propuesta h2{
   font-size:55px;
   color:#be123c;
@@ -208,10 +237,7 @@ img:hover,video:hover{
   font-size:18px;
   padding:8px 12px;
   border-radius:10px;
-  padding:12px 25px;
-  font-size:22px;
   border:none;
-  border-radius:15px;
   background:#e11d48;
   color:white;
   cursor:pointer;
@@ -288,13 +314,11 @@ img:hover,video:hover{
   0%{transform:translate(5px,5px);}
   50%{transform:translate(-5px,-5px);}
   100%{transform:translate(5px,5px);}
-  display:none;
 }
 
 /* OCULTO */
 .oculto{
   display:none !important;
-  display:none;
 }
 
 /* ANIMACIONES */
@@ -302,20 +326,16 @@ img:hover,video:hover{
   from{opacity:0;}
   to{opacity:1;}
 }
-/* === TODO TU CSS ORIGINAL ABAJO (NO TOCADO) === */
 
 /* 💌 CARTA FINAL */
 #cartaFinal{
   position:relative;
   width:100%;
   height:100vh;
-section{
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  padding:80px 20px;
 }
 
 /* 📸 FOTOS DE FONDO */
@@ -332,19 +352,12 @@ section{
   /* 🎥 EFECTO CINE */
   transition:opacity 1.5s ease, transform 6s ease;
   transform:scale(1);
-.hero{
-  height:100vh;
-  background:linear-gradient(135deg,#ffe4ec,#ffc0cb);
-  animation:fadeIn 2s ease;
 }
 
 /* FOTO ACTIVA */
 .carta-fondo.activa{
   opacity:1;
   transform:scale(1.1); /* 🔥 zoom lento */
-.hero h1{
-  font-size:85px;
-  color:#e11d48;
 }
 
 /* 📝 TEXTO */
@@ -354,25 +367,12 @@ section{
   max-width:800px;
   padding:25px;
   border-radius:20px;
-.contador h2{font-size:55px;color:#be123c;}
-#tiempo{font-size:38px;margin-top:15px;}
 
   /* 🔥 MEJOR TRANSPARENCIA (ANTES TAPABA TODO) */
   background:rgba(0,0,0,0.25);
-.razones h2{font-size:60px;color:#e11d48;}
-.razones ul{list-style:none;padding:0;}
-.razones li{font-size:32px;margin:12px 0;}
 
   color:white;
   font-size:28px;
   line-height:1.6;
   backdrop-filter:blur(6px);
-.galeria{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
-img,video{width:260px;border-radius:15px;}
-
-.musica-btn{
-  position:fixed;
-  top:10px;
-  right:10px;
-  z-index:9999;
 }

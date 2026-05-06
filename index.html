@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Te amo Franchesca</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -204,7 +203,6 @@ function iniciarFotos(){
 
     fotos[i].classList.add("activa");
   },4000); // más lento = más cine
-  },4000);
 }
 
 // ✍️ TEXTO AUTOMÁTICO
@@ -289,13 +287,8 @@ c.style.top=e.clientY+"px";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
-});
-
 
   // INTRO FONDO
-// ================== 💖 INTRO ==================
-
-// FONDO (corazones + ñoquis)
 let fondo = document.getElementById("fondoIntro");
 
 setInterval(()=>{
@@ -309,7 +302,7 @@ setInterval(()=>{
 },300);
 
 // TEXTO INTRO (EDITÁ ACÁ)
-let textoIntro = "francesca te amo";
+let textoIntro = "ACÁ ESCRIBÍ TU MENSAJE 💖";
 let iIntro = 0;
 
 let escribirIntro = setInterval(()=>{
@@ -323,22 +316,14 @@ let escribirIntro = setInterval(()=>{
 },40);
 
 // ENTRAR
-// ENTRAR (con animación)
 function entrar(){
   document.getElementById("intro").style.display = "none";
   document.getElementById("contenido").style.display = "block";
-  let intro = document.getElementById("intro");
-
-  intro.style.opacity = "0";
-
-  setTimeout(()=>{
-    intro.style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-  },500);
 }
 });
 </script>
 
 </div>
+
 </body>
 </html>

@@ -266,7 +266,6 @@ img:hover,video:hover{
   overflow:hidden;
 }
 
-/* FOTOS DE FONDO */
 /* 📸 FOTOS DE FONDO */
 .carta-fondo{
   position:absolute;
@@ -276,7 +275,6 @@ img:hover,video:hover{
   height:100%;
   object-fit:cover;
   opacity:0;
-  transition:opacity 1.5s ease;
   z-index:1;
 
   /* 🎥 EFECTO CINE */
@@ -290,14 +288,11 @@ img:hover,video:hover{
   transform:scale(1.1); /* 🔥 zoom lento */
 }
 
-/* TEXTO */
 /* 📝 TEXTO */
 .carta-contenido{
   position:relative;
   z-index:2;
   max-width:800px;
-  padding:20px;
-  background:rgba(0,0,0,0.4);
   padding:25px;
   border-radius:20px;
 
@@ -307,6 +302,5 @@ img:hover,video:hover{
   color:white;
   font-size:28px;
   line-height:1.6;
-  backdrop-filter:blur(5px);
   backdrop-filter:blur(6px);
 }

@@ -304,3 +304,55 @@ img:hover,video:hover{
   line-height:1.6;
   backdrop-filter:blur(6px);
 }
+
+/* INTRO */
+.intro-bloque{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  background:
+    linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
+    url("foto20.jpg") center/cover;
+}
+
+.intro-caja{
+  width:min(900px, 92%);
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:28px;
+  padding:40px 30px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+  backdrop-filter:blur(8px);
+}
+
+#introTexto{
+  font-family: Georgia, "Times New Roman", serif;
+  color:#fff;
+  font-size:22px;
+  line-height:1.8;
+  text-align:left;
+  white-space:pre-wrap;
+  min-height:260px;
+}
+
+#btnRevelar{
+  margin-top:24px;
+  font-size:22px;
+  padding:14px 28px;
+  border:none;
+  border-radius:14px;
+  background:#e11d48;
+  color:#fff;
+  cursor:pointer;
+  font-family:'Pacifico',cursive;
+  transition:0.3s;
+}
+
+#btnRevelar:hover{
+  transform:scale(1.05);
+  background:#be123c;
+}

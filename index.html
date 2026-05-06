@@ -290,38 +290,36 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const texto = `Hola amor, como estas, feliz mes de que empezamos a hablar, vengo guardandome esto hace rato, vos sabes que soy diferente a los demas y me quise adaptar a algo que tengo entendido que te gusta, desde que me dijiste que querias empezar el curso de desarrollo de paginas web algo quedo en mi cabeza, y era hacerte algo especial a vos, me vi un monton de videos, lei bastantes paginas y esclavice a chatgpt para que me de la mano con algunas cosas. asi que por medidados de abril arranque con esta pagina, demasiadas horas y desveladas para que quede y aun asi estoy a ultimo momento escribiendo esto porque mañana ya te la muestro. no quiero ver mas un html en mi vida aprox pero siento que quedo lindo, por lo menos para que entiendas una partecita del amor que te tengo. no la voy a hacer demasiado larga asi que espero que te guste mucho ñoqui. Te amo`;
+<script>
 
-  const introTexto = document.getElementById("introTexto");
-  const btnRevelar = document.getElementById("btnRevelar");
-  const introBloque = document.getElementById("introBloque");
+// INTRO TEXTO
+function intro(){
+let texto="Hola amor, como estas, feliz mes de que empezamos a hablar, vengo guardandome esto hace rato, vos sabes que soy diferente a los demas y me quise adaptar a algo que tengo entendido que te gusta, desde que me dijiste que querias empezar el curso de desarrollo de paginas web algo quedo en mi cabeza, y era hacerte algo especial a vos, me vi un monton de videos, lei bastantes paginas y esclavice a chatgpt para que me de la mano con algunas cosas. asi que por medidados de abril arranque con esta pagina, demasiadas horas y desveladas para que quede y aun asi estoy a ultimo momento escribiendo esto porque mañana ya te la muestro. no quiero ver mas un html en mi vida aprox pero siento que quedo lindo, por lo menos para que entiendas una partecita del amor que te tengo. no la voy a hacer demasiado larga asi que espero que te guste mucho ñoqui. Te amo";
 
-  const elementos = Array.from(document.body.children).filter(el => el.id !== "introBloque");
+let i=0;
 
-  elementos.forEach(el => {
-    el.dataset.displayOriginal = getComputedStyle(el).display;
-    el.style.display = "none";
-  });
+let intervalo=setInterval(()=>{
+document.getElementById("introTexto").innerHTML+=texto[i];
+i++;
 
-  let i = 0;
-  const intervalo = setInterval(() => {
-    introTexto.textContent += texto[i];
-    i++;
+if(i>=texto.length){
+clearInterval(intervalo);
+document.getElementById("btnRevelar").style.display="inline-block";
+}
+},15);
+}
 
-    if (i >= texto.length) {
-      clearInterval(intervalo);
-      btnRevelar.style.display = "inline-block";
-    }
-  }, 22);
+// BOTON MOSTRAR PAGINA
+function revelar(){
+document.getElementById("introBloque").style.display="none";
+}
 
-  btnRevelar.addEventListener("click", () => {
-    elementos.forEach(el => {
-      el.style.display = el.dataset.displayOriginal || "";
-    });
+// INICIAR
+intro();
 
-    introBloque.remove();
-  });
+// CLICK BOTON
+document.getElementById("btnRevelar").onclick=revelar;
+)
 });
 </script>
 

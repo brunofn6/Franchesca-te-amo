@@ -12,7 +12,6 @@
 <body>
 
   <!-- 💖 INTRO -->
-<!-- 💖 INTRO -->
 <div id="intro">
 
   <div class="fondo-intro" id="fondoIntro"></div>
@@ -32,13 +31,10 @@
 </div>
 
   <div id="contenido" style="display:none;">
-<!-- 🔽 CONTENIDO REAL -->
-<div id="contenido" style="display:none;">
 
 <button class="musica-btn" onclick="activarMusica()">
 🎵 Música 💖
 </button>
-<button class="musica-btn" onclick="activarMusica()">🎵 Música 💖</button>
 
 <audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
@@ -158,47 +154,6 @@
 
 </section>
 
-</div>
-
-<script>
-
-// INTRO
-let fondo = document.getElementById("fondoIntro");
-
-setInterval(()=>{
-  let el = document.createElement("span");
-  el.innerText = Math.random() > 0.5 ? "❤️" : "🥟";
-  el.style.left = Math.random()*100 + "vw";
-  el.style.fontSize = (20 + Math.random()*30) + "px";
-  fondo.appendChild(el);
-  setTimeout(()=>el.remove(),10000);
-},300);
-
-let textoIntro = "francesca te amo";
-let iIntro = 0;
-
-let escribirIntro = setInterval(()=>{
-  document.getElementById("textoIntro").innerHTML += textoIntro[iIntro];
-  iIntro++;
-
-  if(iIntro >= textoIntro.length){
-    clearInterval(escribirIntro);
-    document.getElementById("btnEntrar").style.display = "inline-block";
-  }
-},40);
-
-function entrar(){
-  let intro = document.getElementById("intro");
-
-  intro.style.opacity = "0";
-
-  setTimeout(()=>{
-    intro.style.display = "none";
-    document.body.style.overflow = "auto";
-    document.getElementById("contenido").style.display = "block";
-  },500);
-}
-
 <script>
 // MUSICA
 function activarMusica(){
@@ -244,8 +199,11 @@ function iniciarFotos(){
 
   setInterval(()=>{
     fotos[i].classList.remove("activa");
+
     i = (i + 1) % fotos.length;
+
     fotos[i].classList.add("activa");
+  },4000); // más lento = más cine
   },4000);
 }
 
@@ -260,6 +218,7 @@ function escribirTexto(){
 
     if(i>=texto.length){
       clearInterval(intervalo);
+
       setTimeout(()=>{
         document.getElementById("propuesta").classList.remove("oculto");
       },1500);
@@ -333,6 +292,7 @@ setTimeout(()=>c.remove(),800);
 });
 
 
+  // INTRO FONDO
 // ================== 💖 INTRO ==================
 
 // FONDO (corazones + ñoquis)
@@ -362,8 +322,11 @@ let escribirIntro = setInterval(()=>{
   }
 },40);
 
+// ENTRAR
 // ENTRAR (con animación)
 function entrar(){
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("contenido").style.display = "block";
   let intro = document.getElementById("intro");
 
   intro.style.opacity = "0";
@@ -373,6 +336,7 @@ function entrar(){
     document.getElementById("contenido").style.display = "block";
   },500);
 }
+});
 </script>
 
 </div>

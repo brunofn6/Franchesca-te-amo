@@ -356,3 +356,20 @@ img:hover,video:hover{
   transform:scale(1.05);
   background:#be123c;
 }
+
+/* MEJOR VISIBILIDAD INTRO */
+#introTexto{
+  color:#ffffff;
+  font-size:24px;
+  line-height:1.9;
+  text-shadow:0 0 8px rgba(0,0,0,0.9);
+}
+
+.intro-caja{
+  background:rgba(0,0,0,0.65); /* más sólido */
+  border:1px solid rgba(255,255,255,0.2);
+}
+
+.intro-bloque{
+  background:rgba(0,0,0,0.92); /* fondo más oscuro sin imagen */
+}

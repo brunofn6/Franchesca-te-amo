@@ -5,7 +5,68 @@
 <title>Te amo Franchesca</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<!-- AGREGADO: Fuente romántica pero muy legible para la carta inicial -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- AGREGADO: Estilos para el bloque de intro -->
+<style>
+  /* Oculta todo el contenido de la página excepto la intro al inicio */
+  body.intro-activa > :not(#introBloque) {
+    display: none !important;
+  }
+  
+  /* Estilo del fondo oscuro y alineación de la intro */
+  #introBloque {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background-color: #1a1a1a; /* Fondo medio oscurito */
+    color: #ffffff; /* Letras blancas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .intro-caja {
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  /* Estilo de la caligrafía */
+  #introTexto {
+    font-family: 'Caveat', cursive; /* Letra legible y romántica */
+    font-size: 32px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    min-height: 250px; /* Evita que el botón salte de golpe al terminar de escribir */
+  }
+  
+  /* Botón de revelado */
+  #btnRevelar {
+    font-family: 'Pacifico', cursive;
+    font-size: 22px;
+    padding: 12px 30px;
+    margin-top: 30px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  #btnRevelar:hover {
+    transform: scale(1.1);
+  }
+</style>
 </head>
 
 <body>
@@ -290,6 +351,41 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),800);
 }
 });
+
+// --- AGREGADO: LÓGICA DE LA INTRO AUTOMÁTICA ---
+// Añade la clase que oculta el resto de la página al instante
+document.body.classList.add("intro-activa"); 
+
+const mensajeIntro = "Hola amor, como estas, feliz mes de que empezamos a hablar, vengo guardandome esto hace rato, vos sabes que soy diferente a los demas y me quise adaptar a algo que tengo entendido que te gusta, desde que me dijiste que querias empezar el curso de desarrollo de paginas web algo quedo en mi cabeza, y era hacerte algo especial a vos, me vi un monton de videos, lei bastantes paginas y esclavice a chatgpt para que me de la mano con algunas cosas. asi que por medidados de abril arranque con esta pagina, demasiadas horas y desveladas para que quede y aun asi estoy a ultimo momento escribiendo esto porque mañana ya te la muestro. no quiero ver mas un html en mi vida aprox pero siento que quedo lindo, por lo menos para que entiendas una partecita del amor que te tengo. no la voy a hacer demasiado larga asi que espero que te guste mucho ñoqui. Te amo";
+
+let indexIntro = 0;
+let elementoIntroTexto = document.getElementById("introTexto");
+let botonRevelarInicio = document.getElementById("btnRevelar");
+
+function escribirIntroInicial() {
+  if (indexIntro < mensajeIntro.length) {
+    elementoIntroTexto.innerHTML += mensajeIntro.charAt(indexIntro);
+    indexIntro++;
+    setTimeout(escribirIntroInicial, 40); // Ajusta este número (40) si querés que escriba más rápido o más lento
+  } else {
+    // Cuando termina de escribir, muestra el botón
+    botonRevelarInicio.style.display = "inline-block";
+  }
+}
+
+// Arrancar a escribir cuando la página carga
+window.addEventListener("load", () => {
+  setTimeout(escribirIntroInicial, 800); // Espera casi 1 segundo antes de empezar a escribir
+});
+
+// Acción del botón para revelar tu página original
+botonRevelarInicio.addEventListener("click", () => {
+  document.getElementById("introBloque").style.display = "none";
+  document.body.classList.remove("intro-activa"); // Esto vuelve a mostrar tu diseño
+  // Opcional: Podés hacer que arranque la música automáticamente al tocar acá descomentando la línea de abajo:
+  // activarMusica();
+});
+// ------------------------------------------------
 </script>
 
 </body>
